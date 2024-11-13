@@ -1,53 +1,95 @@
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
+import { cn } from "@/lib/utils";
 
 const Navigation = () => {
+  const MenuItems = () => (
+    <>
+      <NavigationMenuItem>
+        <Link to="/" className="font-semibold text-lg text-primary hover:text-primary/80">
+          PawsomeCare
+        </Link>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+            <li className="row-span-3">
+              <Link to="/services" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/50 to-primary p-6 no-underline outline-none focus:shadow-md">
+                <div className="mb-2 mt-4 text-lg font-medium text-white">
+                  Veterinary Services
+                </div>
+                <p className="text-sm leading-tight text-white/90">
+                  Comprehensive medical care for your beloved pets
+                </p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/grooming" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                <div className="text-sm font-medium leading-none">Grooming</div>
+                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                  Professional pet grooming services
+                </p>
+              </Link>
+            </li>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <Link to="/blog" className="px-4 py-2 hover:text-primary">
+          Blog
+        </Link>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <Link to="/contact" className="px-4 py-2 hover:text-primary">
+          Contact
+        </Link>
+      </NavigationMenuItem>
+    </>
+  );
+
   return (
-    <NavigationMenu className="max-w-full w-full justify-center bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b">
-      <NavigationMenuList className="px-4 md:px-6 lg:px-8 py-2">
-        <NavigationMenuItem>
-          <Link to="/" className="font-semibold text-lg text-primary hover:text-primary/80">
-            PawsomeCare
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <li className="row-span-3">
-                <Link to="/services" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/50 to-primary p-6 no-underline outline-none focus:shadow-md">
-                  <div className="mb-2 mt-4 text-lg font-medium text-white">
-                    Veterinary Services
-                  </div>
-                  <p className="text-sm leading-tight text-white/90">
-                    Comprehensive medical care for your beloved pets
-                  </p>
-                </Link>
-              </li>
-              <li>
-                <Link to="/grooming" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                  <div className="text-sm font-medium leading-none">Grooming</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Professional pet grooming services
-                  </p>
-                </Link>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link to="/blog" className="px-4 py-2 hover:text-primary">
-            Blog
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link to="/contact" className="px-4 py-2 hover:text-primary">
-            Contact
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <div className="max-w-full w-full bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b">
+      {/* Mobile Navigation */}
+      <div className="md:hidden flex items-center justify-between px-4 py-2">
+        <Link to="/" className="font-semibold text-lg text-primary">
+          PawsomeCare
+        </Link>
+        <Sheet>
+          <SheetTrigger className="p-2">
+            <Menu className="h-6 w-6" />
+          </SheetTrigger>
+          <SheetContent side="right">
+            <nav className="flex flex-col space-y-4 mt-4">
+              <Link to="/" className="text-lg font-semibold">
+                Home
+              </Link>
+              <Link to="/services" className="text-lg">
+                Services
+              </Link>
+              <Link to="/grooming" className="text-lg">
+                Grooming
+              </Link>
+              <Link to="/blog" className="text-lg">
+                Blog
+              </Link>
+              <Link to="/contact" className="text-lg">
+                Contact
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+
+      {/* Desktop Navigation */}
+      <NavigationMenu className="hidden md:flex justify-center">
+        <NavigationMenuList className="px-4 md:px-6 lg:px-8 py-2">
+          <MenuItems />
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   );
 };
 
