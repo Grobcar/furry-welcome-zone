@@ -6,15 +6,16 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
   const MenuItems = () => (
     <>
-      <NavigationMenuItem className="w-full">
-        <Link to="/" className="block w-full font-semibold text-lg text-primary hover:text-primary/80">
+      <NavigationMenuItem className="w-full flex items-center">
+        <img src="/logo.svg" alt="PawsomeCare Logo" className="h-10 mr-2" />
+        <Link to="/" className="block font-semibold text-lg text-primary hover:text-primary/80">
           PawsomeCare
         </Link>
       </NavigationMenuItem>
       <NavigationMenuItem className="w-full">
         <NavigationMenuTrigger className="w-full">Services</NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+          <ul className="grid w-[400px] gap-3 p-4">
             <li className="row-span-3">
               <Link to="/services" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/50 to-primary p-6 no-underline outline-none focus:shadow-md">
                 <div className="mb-2 mt-4 text-lg font-medium text-white">
