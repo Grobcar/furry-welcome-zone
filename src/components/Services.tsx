@@ -6,25 +6,25 @@ const services = [
     title: "Preventive Care",
     description: "Regular check-ups and vaccinations to keep your pets healthy",
     icon: Heart,
-    image: null,
+    image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
   },
   {
     title: "Medical Treatment",
     description: "Expert diagnosis and treatment for various conditions",
     icon: Stethoscope,
-    image: null,
+    image: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def",
   },
   {
     title: "Emergency Care",
     description: "24/7 emergency services for urgent medical needs",
     icon: Cross,
-    image: null,
+    image: "https://images.unsplash.com/photo-1612531822963-3873f7dd3cf1",
   },
   {
     title: "Pet Wellness",
     description: "Nutrition counseling and lifestyle advice for optimal health",
     icon: Dog,
-    image: null,
+    image: "https://images.unsplash.com/photo-1587764379873-97837921fd44",
   },
   {
     title: "Exotic Animals",
@@ -51,15 +51,13 @@ const Services = () => {
               <CardHeader className="flex-1">
                 <div className="flex items-center justify-between">
                   <service.icon className="h-12 w-12 text-primary mb-4" />
-                  {service.image && (
-                    <div className="w-16 h-16 rounded-full overflow-hidden">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
+                  <div className="w-16 h-16 rounded-full overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
                 <CardTitle>{service.title}</CardTitle>
               </CardHeader>

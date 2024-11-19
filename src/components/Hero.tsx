@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Calendar } from "lucide-react";
+import { Phone } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="relative bg-gradient-to-r from-primary/10 to-primary/5 py-20">
+    <div className="relative bg-gradient-to-r from-[#4ade80]/10 to-[#4ade80]/5 py-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 text-center lg:text-left">
@@ -14,15 +13,15 @@ const Hero = () => {
               Welcome to Pawsome Care Veterinary Clinic. We provide comprehensive
               veterinary services with compassion and expertise for your beloved pets.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              <Calendar className="mr-2 h-5 w-5" /> Book Appointment
-            </Button>
+            <button className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors">
+              <Phone className="mr-2 h-5 w-5" /> (555) 123-4567
+            </button>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 lg:flex-[1.5]">
             <img
               src="https://images.unsplash.com/photo-1582562124811-c09040d0a901"
               alt="Happy cat at vet"
-              className="rounded-lg shadow-xl w-full max-w-lg mx-auto"
+              className="rounded-lg shadow-xl w-full max-w-2xl mx-auto"
             />
           </div>
         </div>

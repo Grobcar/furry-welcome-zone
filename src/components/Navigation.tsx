@@ -2,18 +2,17 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const MenuItems = () => (
     <>
-      <NavigationMenuItem>
-        <Link to="/" className="font-semibold text-lg text-primary hover:text-primary/80">
+      <NavigationMenuItem className="w-full">
+        <Link to="/" className="block w-full font-semibold text-lg text-primary hover:text-primary/80">
           PawsomeCare
         </Link>
       </NavigationMenuItem>
-      <NavigationMenuItem>
-        <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+      <NavigationMenuItem className="w-full">
+        <NavigationMenuTrigger className="w-full">Services</NavigationMenuTrigger>
         <NavigationMenuContent>
           <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
             <li className="row-span-3">
@@ -37,13 +36,13 @@ const Navigation = () => {
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>
-      <NavigationMenuItem>
-        <Link to="/blog" className="px-4 py-2 hover:text-primary">
+      <NavigationMenuItem className="w-full">
+        <Link to="/blog" className="block w-full px-4 py-2 hover:text-primary">
           Blog
         </Link>
       </NavigationMenuItem>
-      <NavigationMenuItem>
-        <Link to="/contact" className="px-4 py-2 hover:text-primary">
+      <NavigationMenuItem className="w-full">
+        <Link to="/contact" className="block w-full px-4 py-2 hover:text-primary">
           Contact
         </Link>
       </NavigationMenuItem>
@@ -61,21 +60,21 @@ const Navigation = () => {
           <SheetTrigger className="p-2">
             <Menu className="h-6 w-6" />
           </SheetTrigger>
-          <SheetContent side="right">
+          <SheetContent side="right" className="w-[300px]">
             <nav className="flex flex-col space-y-4 mt-4">
-              <Link to="/" className="text-lg font-semibold">
+              <Link to="/" className="text-lg font-semibold hover:text-primary">
                 Home
               </Link>
-              <Link to="/services" className="text-lg">
+              <Link to="/services" className="text-lg hover:text-primary">
                 Services
               </Link>
-              <Link to="/grooming" className="text-lg">
+              <Link to="/grooming" className="text-lg hover:text-primary">
                 Grooming
               </Link>
-              <Link to="/blog" className="text-lg">
+              <Link to="/blog" className="text-lg hover:text-primary">
                 Blog
               </Link>
-              <Link to="/contact" className="text-lg">
+              <Link to="/contact" className="text-lg hover:text-primary">
                 Contact
               </Link>
             </nav>
