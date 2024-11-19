@@ -1,40 +1,40 @@
-import { Heart, Stethoscope, Cross, Dog, Rabbit, Home } from "lucide-react";
+import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Home } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
   {
-    title: "Preventive Care",
-    description: "Regular check-ups and vaccinations to keep your pets healthy",
+    title: "Cuidado Preventivo",
+    description: "Chequeos regulares y vacunaciones para mantener a tus mascotas saludables",
     icon: Heart,
     image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
   },
   {
-    title: "Medical Treatment",
-    description: "Expert diagnosis and treatment for various conditions",
+    title: "Tratamiento Médico",
+    description: "Diagnóstico y tratamiento experto para diversas condiciones",
     icon: Stethoscope,
     image: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def",
   },
   {
-    title: "Emergency Care",
-    description: "24/7 emergency services for urgent medical needs",
-    icon: Cross,
-    image: "https://images.unsplash.com/photo-1612531822963-3873f7dd3cf1",
+    title: "Tienda de Mascotas",
+    description: "Productos de calidad para el cuidado de tu mascota",
+    icon: ShoppingBag,
+    image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1",
   },
   {
-    title: "Pet Wellness",
-    description: "Nutrition counseling and lifestyle advice for optimal health",
+    title: "Bienestar Animal",
+    description: "Asesoramiento nutricional y consejos de estilo de vida",
     icon: Dog,
     image: "https://images.unsplash.com/photo-1587764379873-97837921fd44",
   },
   {
-    title: "Exotic Animals",
-    description: "Specialized care for reptiles, birds, and other exotic pets",
+    title: "Animales Exóticos",
+    description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
     icon: Rabbit,
     image: "https://images.unsplash.com/photo-1583087253076-6de06c243071",
   },
   {
-    title: "In-Home Service",
-    description: "Professional veterinary care in the comfort of your home",
+    title: "Servicio a Domicilio",
+    description: "Atención veterinaria profesional en la comodidad de tu hogar",
     icon: Home,
     image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
   },

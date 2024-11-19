@@ -1,83 +1,83 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Stethoscope, Syringe, Microscope, HeartPulse, Cross, Dog } from "lucide-react";
+import { Stethoscope, Syringe, Microscope, HeartPulse, ShoppingBag, Dog } from "lucide-react";
 
 const services = [
   {
-    title: "Preventive Care",
-    description: "Regular check-ups and vaccinations",
+    title: "Cuidado Preventivo",
+    description: "Chequeos regulares y vacunaciones",
     icon: HeartPulse,
     image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
     details: [
-      "Annual wellness examinations",
-      "Vaccinations and boosters",
-      "Parasite prevention and control",
-      "Dental health assessments",
-      "Nutritional counseling"
+      "Exámenes anuales de bienestar",
+      "Vacunas y refuerzos",
+      "Prevención y control de parásitos",
+      "Evaluaciones de salud dental",
+      "Asesoramiento nutricional"
     ]
   },
   {
-    title: "Diagnostics",
-    description: "Advanced diagnostic testing",
+    title: "Diagnósticos",
+    description: "Pruebas diagnósticas avanzadas",
     icon: Microscope,
     image: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def",
     details: [
-      "Digital X-rays and imaging",
-      "Laboratory testing",
-      "Ultrasound examinations",
-      "Blood work analysis",
-      "Urinalysis and fecal testing"
+      "Rayos X digitales",
+      "Análisis de laboratorio",
+      "Exámenes de ultrasonido",
+      "Análisis de sangre",
+      "Análisis de orina y heces"
     ]
   },
   {
-    title: "Surgery",
-    description: "Routine and complex surgical procedures",
+    title: "Cirugía",
+    description: "Procedimientos quirúrgicos rutinarios y complejos",
     icon: Syringe,
-    image: "https://images.unsplash.com/photo-1612531822963-3873f7dd3cf1",
+    image: "https://images.unsplash.com/photo-1537615195240-e0f13b1c4087",
     details: [
-      "Spaying and neutering",
-      "Soft tissue surgery",
-      "Dental procedures",
-      "Mass removals",
-      "Emergency surgery"
+      "Esterilización y castración",
+      "Cirugía de tejidos blandos",
+      "Procedimientos dentales",
+      "Extirpación de masas",
+      "Cirugía de emergencia"
     ]
   },
   {
-    title: "Emergency Care",
-    description: "24/7 emergency services",
-    icon: Cross,
-    image: "https://images.unsplash.com/photo-1583087253076-6de06c243071",
+    title: "Tienda de Mascotas",
+    description: "Productos de calidad para tu mascota",
+    icon: ShoppingBag,
+    image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1",
     details: [
-      "Immediate medical attention",
-      "Critical care monitoring",
-      "Emergency surgery",
-      "Pain management",
-      "Trauma care"
+      "Alimentos premium",
+      "Suplementos y vitaminas",
+      "Productos de higiene",
+      "Juguetes y accesorios",
+      "Productos para el cuidado dental"
     ]
   },
   {
-    title: "Internal Medicine",
-    description: "Treatment of various conditions",
+    title: "Medicina Interna",
+    description: "Tratamiento de diversas condiciones",
     icon: Stethoscope,
     image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
     details: [
-      "Chronic disease management",
-      "Endocrine disorders",
-      "Gastrointestinal issues",
-      "Respiratory conditions",
-      "Cardiovascular care"
+      "Manejo de enfermedades crónicas",
+      "Trastornos endocrinos",
+      "Problemas gastrointestinales",
+      "Condiciones respiratorias",
+      "Cuidado cardiovascular"
     ]
   },
   {
-    title: "Exotic Pet Care",
-    description: "Specialized care for exotic pets",
+    title: "Cuidado de Mascotas Exóticas",
+    description: "Atención especializada para mascotas exóticas",
     icon: Dog,
     image: "https://images.unsplash.com/photo-1587764379873-97837921fd44",
     details: [
-      "Birds and reptiles",
-      "Small mammals",
-      "Specialized nutrition",
-      "Environmental consulting",
-      "Species-specific health care"
+      "Aves y reptiles",
+      "Pequeños mamíferos",
+      "Nutrición especializada",
+      "Asesoramiento ambiental",
+      "Cuidado específico por especie"
     ]
   }
 ];
@@ -87,7 +87,7 @@ const Services = () => {
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-transparent">
       <div className="relative h-[300px] bg-gradient-to-r from-primary/10 to-primary/5">
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl font-bold text-center mb-12">Our Services</h1>
+          <h1 className="text-4xl font-bold text-center mb-12">Nuestros Servicios</h1>
         </div>
       </div>
       <div className="container mx-auto px-4 py-12">
