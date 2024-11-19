@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
   const MenuItems = () => (
     <>
-      <NavigationMenuItem className="w-full flex items-center">
+      <NavigationMenuItem className="w-full flex items-center mr-8">
         <img src="/logo.svg" alt="PawsomeCare Logo" className="h-10 mr-2" />
         <Link to="/" className="block font-semibold text-lg text-primary hover:text-primary/80">
           PawsomeCare
         </Link>
       </NavigationMenuItem>
-      <NavigationMenuItem className="w-full">
+      <NavigationMenuItem className="w-full mx-4">
         <NavigationMenuTrigger className="w-full">Services</NavigationMenuTrigger>
         <NavigationMenuContent>
           <ul className="grid w-[400px] gap-3 p-4">
@@ -37,12 +37,12 @@ const Navigation = () => {
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>
-      <NavigationMenuItem className="w-full">
+      <NavigationMenuItem className="w-full mx-4">
         <Link to="/blog" className="block w-full px-4 py-2 hover:text-primary">
           Blog
         </Link>
       </NavigationMenuItem>
-      <NavigationMenuItem className="w-full">
+      <NavigationMenuItem className="w-full mx-4">
         <Link to="/contact" className="block w-full px-4 py-2 hover:text-primary">
           Contact
         </Link>
