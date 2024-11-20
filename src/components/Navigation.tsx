@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const MenuItems = () => (
-    <div className="flex items-center justify-between w-full gap-8">
+    <div className="flex items-center justify-between w-full">
       <NavigationMenuItem className="flex items-center">
         <img src="/logo.svg" alt="Veterinaria Gaiteira Logo" className="h-10 mr-2" />
         <Link to="/" className="font-semibold text-lg text-primary hover:text-primary/80">
           Veterinaria Gaiteira
         </Link>
       </NavigationMenuItem>
-      <div className="flex items-center gap-8">
+      <div className="flex items-center space-x-8">
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Servicios</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="h-10">Servicios</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4">
               <li className="row-span-3">
@@ -39,12 +39,12 @@ const Navigation = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link to="/blog" className="text-base hover:text-primary">
+          <Link to="/blog" className="text-base hover:text-primary h-10 flex items-center">
             Blog
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link to="/contact" className="text-base hover:text-primary">
+          <Link to="/contact" className="text-base hover:text-primary h-10 flex items-center">
             Contacto
           </Link>
         </NavigationMenuItem>
