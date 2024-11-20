@@ -5,49 +5,51 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const MenuItems = () => (
-    <>
-      <NavigationMenuItem className="w-full flex items-center mr-8">
+    <div className="flex items-center justify-between w-full gap-8">
+      <NavigationMenuItem className="flex items-center">
         <img src="/logo.svg" alt="Veterinaria Gaiteira Logo" className="h-10 mr-2" />
-        <Link to="/" className="block font-semibold text-lg text-primary hover:text-primary/80">
+        <Link to="/" className="font-semibold text-lg text-primary hover:text-primary/80">
           Veterinaria Gaiteira
         </Link>
       </NavigationMenuItem>
-      <NavigationMenuItem className="w-full mx-4">
-        <NavigationMenuTrigger className="w-full">Servicios</NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <ul className="grid w-[400px] gap-3 p-4">
-            <li className="row-span-3">
-              <Link to="/services" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/50 to-primary p-6 no-underline outline-none focus:shadow-md">
-                <div className="mb-2 mt-4 text-lg font-medium text-white">
-                  Servicios Veterinarios
-                </div>
-                <p className="text-sm leading-tight text-white/90">
-                  Cuidado médico integral para tus mascotas
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link to="/grooming" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                <div className="text-sm font-medium leading-none">Peluquería</div>
-                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                  Servicios profesionales de peluquería
-                </p>
-              </Link>
-            </li>
-          </ul>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-      <NavigationMenuItem className="w-full mx-4">
-        <Link to="/blog" className="block w-full px-4 py-2 hover:text-primary">
-          Blog
-        </Link>
-      </NavigationMenuItem>
-      <NavigationMenuItem className="w-full mx-4">
-        <Link to="/contact" className="block w-full px-4 py-2 hover:text-primary">
-          Contacto
-        </Link>
-      </NavigationMenuItem>
-    </>
+      <div className="flex items-center gap-8">
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Servicios</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4">
+              <li className="row-span-3">
+                <Link to="/services" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/50 to-primary p-6 no-underline outline-none focus:shadow-md">
+                  <div className="mb-2 mt-4 text-lg font-medium text-white">
+                    Servicios Veterinarios
+                  </div>
+                  <p className="text-sm leading-tight text-white/90">
+                    Cuidado médico integral para tus mascotas
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/grooming" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                  <div className="text-sm font-medium leading-none">Peluquería</div>
+                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    Servicios profesionales de peluquería
+                  </p>
+                </Link>
+              </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/blog" className="text-base hover:text-primary">
+            Blog
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/contact" className="text-base hover:text-primary">
+            Contacto
+          </Link>
+        </NavigationMenuItem>
+      </div>
+    </div>
   );
 
   return (
