@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Stethoscope, Syringe, Microscope, HeartPulse, ShoppingBag, Users } from "lucide-react";
+import { Stethoscope, Syringe, Microscope, HeartPulse, ShoppingBag, Dog } from "lucide-react";
 
 const services = [
   {
@@ -68,16 +68,16 @@ const services = [
     ]
   },
   {
-    title: "Equipo Humano",
-    description: "Nuestro equipo de profesionales altamente cualificados",
-    icon: Users,
+    title: "Cuidado de Mascotas Exóticas",
+    description: "Atención especializada para mascotas exóticas",
+    icon: Dog,
     image: "https://images.unsplash.com/photo-1587764379873-97837921fd44",
     details: [
-      "Veterinarios especializados",
-      "Auxiliares veterinarios",
-      "Personal de atención al cliente",
-      "Especialistas en comportamiento",
-      "Equipo de emergencias"
+      "Aves y reptiles",
+      "Pequeños mamíferos",
+      "Nutrición especializada",
+      "Asesoramiento ambiental",
+      "Cuidado específico por especie"
     ]
   }
 ];
