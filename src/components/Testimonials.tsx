@@ -1,9 +1,8 @@
 const testimonials = [
   {
     name: "Gemma",
-    text: "Silvia lleva años atendiendo a mis mascotas, y estamos encantados, con su gran dedicación, 
-      muy atenta y preocupada, tiene una gran vocación! Solo tengo buenas palabras para ella!",
-    
+    text: "Silvia lleva años atendiendo a mis mascotas, y estamos encantados, con su gran dedicación, muy atenta y preocupada, tiene una gran vocación! Solo tengo buenas palabras para ella!",
+    pet: "Luna, Persian Cat",
   },
   {
     name: "James Wilson",
