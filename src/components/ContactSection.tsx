@@ -23,13 +23,13 @@ const ContactSection = () => {
             <div className="flex items-start gap-4">
               <Clock className="h-6 w-6 text-primary mt-1" />
               <div>
-                <h3 className="font-bold mb-2">Hours</h3>
+                <h3 className="font-bold mb-2">Horario</h3>
                 <p className="text-gray-600">
-                  Monday - Friday: 8am - 7pm
+                  Lunes - Viernes: 10am - 4pm
                   <br />
-                  Saturday: 9am - 5pm
+                  Saturday: Cerrado
                   <br />
-                  Sunday: Emergency Services Only
+                  Sunday: Cerrado
                 </p>
               </div>
             </div>
