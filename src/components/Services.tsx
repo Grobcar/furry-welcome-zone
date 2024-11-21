@@ -35,7 +35,7 @@ const services = [
   },
   {
     title: "Tienda de Mascotas",
-    description: "Productos de calidad para el cuidado de tu mascota",
+    description: "Productos de calidad para el cuidado y diversión de tu mascota",
     icon: ShoppingBag,
     image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1",
     details: [
@@ -48,7 +48,7 @@ const services = [
   },
   {
     title: "Bienestar Animal",
-    description: "Asesoramiento nutricional y consejos de estilo de vida",
+    description: "Asesoramiento nutricional y consejos de estilo de vida para tu mascota",
     icon: Dog,
     image: "https://images.unsplash.com/photo-1587764379873-97837921fd44",
     details: [
@@ -80,8 +80,8 @@ const services = [
     details: [
       "Veterinarios especializados",
       "Auxiliares veterinarios",
-      "Personal de atención al cliente",
-      "Especialistas en comportamiento",
+      "La mejor atención al cliente",
+      "El mejor trato para tu mascota",
       "Equipo de emergencias"
     ]
   },
