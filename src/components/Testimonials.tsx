@@ -1,8 +1,9 @@
 const testimonials = [
   {
-    name: "Emily Thompson",
-    text: "The team at Pawsome Care is amazing! They took such great care of my dog during his surgery.",
-    pet: "Max, Golden Retriever",
+    name: "Gemma",
+    text: "Silvia lleva años atendiendo a mis mascotas, y estamos encantados, con su gran dedicación, 
+      muy atenta y preocupada, tiene una gran vocación! Solo tengo buenas palabras para ella!",
+    
   },
   {
     name: "James Wilson",
