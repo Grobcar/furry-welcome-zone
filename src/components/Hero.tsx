@@ -14,7 +14,7 @@ const Hero = () => {
               con compasión y experiencia para tus queridas mascotas.
             </p>
             <button className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors">
-              <Phone className="mr-2 h-5 w-5" /> (555) 123-4567
+              <Phone className="mr-2 h-5 w-5" /> (34) 981135535
             </button>
           </div>
           <div className="flex-1 lg:flex-[1.5]">
