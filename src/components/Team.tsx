@@ -1,7 +1,7 @@
 const teamMembers = [
   {
-    name: "Dr. Sarah Johnson",
-    role: "Lead Veterinarian",
+    name: "Dra. Silvia Perez Botana",
+    role: "Veterinaria",
     image: "https://images.unsplash.com/photo-1438565434616-3ef039228b15",
     description: "15+ years of experience in small animal medicine",
   },
