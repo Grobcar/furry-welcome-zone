@@ -84,34 +84,37 @@ const services = [
 ];
 
 // Componente optimizado con React.memo
-const ServiceCard = React.memo(({ service }) => {
-  return (
-    <Collapsible key={service.title}>
-      <Card className="hover:shadow-lg transition-shadow flex flex-col">
-        <CollapsibleTrigger asChild>
-          <button className="text-left w-full">
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <service.icon className="h-12 w-12 text-primary mb-4" />
+const ServiceCard = React.memo(({ service }) => (
+  <Collapsible key={service.title}>
+    <Card className="hover:shadow-lg transition-shadow flex flex-col">
+      <CollapsibleTrigger asChild>
+        <button className="text-left w-full">
+          <CardHeader className="flex items-center justify-between">
+            {/* Ícono y texto alineados horizontalmente */}
+            <div className="flex items-center space-x-4">
+              <service.icon className="h-8 w-8 text-primary" />
+              <div>
+                <CardTitle className="text-lg font-bold">{service.title}</CardTitle>
+                <p className="text-gray-600 text-sm">{service.description}</p>
               </div>
-              <CardTitle>{service.title}</CardTitle>
-              <p className="text-gray-600">{service.description}</p>
-            </CardHeader>
-          </button>
-        </CollapsibleTrigger>
-        <CollapsibleContent>
-          <CardContent className="border-t">
-            <ul className="list-disc list-inside space-y-2 text-gray-700">
-              {service.details.map((detail, idx) => (
-                <li key={idx} className="text-sm">{detail}</li>
-              ))}
-            </ul>
-          </CardContent>
-        </CollapsibleContent>
-      </Card>
-    </Collapsible>
-  );
-});
+            </div>
+            {/* Flecha en la esquina derecha */}
+            <ChevronDown className="h-5 w-5 text-gray-500 transition-transform duration-300 group-[state=open]:rotate-180" />
+          </CardHeader>
+        </button>
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <CardContent className="border-t">
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
+            {service.details.map((detail, idx) => (
+              <li key={idx} className="text-sm">{detail}</li>
+            ))}
+          </ul>
+        </CardContent>
+      </CollapsibleContent>
+    </Card>
+  </Collapsible>
+));
 
 const Services = () => {
   return (
