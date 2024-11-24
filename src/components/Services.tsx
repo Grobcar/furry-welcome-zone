@@ -11,7 +11,7 @@ const services = [
     title: "Cuidado Preventivo",
     description: "Chequeos regulares y vacunaciones para mantener a tus mascotas saludables",
     icon: Heart,
-    image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
+    image: "/images/mascota.webp",
     details: [
       "Exámenes anuales de bienestar",
       "Vacunas y refuerzos",
