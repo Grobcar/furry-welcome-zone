@@ -24,7 +24,7 @@ const services = [
     title: "Tratamiento Médico",
     description: "Diagnóstico y tratamiento experto para diversas condiciones",
     icon: Stethoscope,
-    image: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def",
+    image: "/images/tratamiento.webp",
     details: [
       "Diagnóstico y tratamiento de enfermedades",
       "Cirugías y procedimientos",
@@ -37,7 +37,7 @@ const services = [
     title: "Tienda de Mascotas",
     description: "Productos de calidad para el cuidado y diversión de tu mascota",
     icon: ShoppingBag,
-    image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1",
+    image: "/images/tienda.webp",
     details: [
       "Alimentos premium",
       "Suplementos y vitaminas",
@@ -50,7 +50,7 @@ const services = [
     title: "Bienestar Animal",
     description: "Asesoramiento nutricional y consejos de estilo de vida para tu mascota",
     icon: Dog,
-    image: "https://images.unsplash.com/photo-1587764379873-97837921fd44",
+    image: "/images/bienestar.webp",
     details: [
       "Planes nutricionales personalizados",
       "Consejos de ejercicio",
@@ -63,7 +63,7 @@ const services = [
     title: "Animales Exóticos",
     description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
     icon: Rabbit,
-    image: "https://images.unsplash.com/photo-1583087253076-6de06c243071",
+    image: "/images/exoticos.webp",
     details: [
       "Atención especializada para aves",
       "Cuidado de reptiles",
@@ -76,7 +76,7 @@ const services = [
     title: "Equipo Humano",
     description: "Nuestro equipo de profesionales altamente cualificados",
     icon: Users,
-    image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
+    image: "/images/mascota.webp",
     details: [
       "Veterinarios especializados",
       "Auxiliares veterinarios",
@@ -96,23 +96,26 @@ const Services = () => {
           {services.map((service, index) => (
             <Collapsible key={index}>
               <Card className="hover:shadow-lg transition-shadow flex flex-col">
-                <CollapsibleTrigger className="w-full text-left">
-                  <CardHeader className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <service.icon className="h-12 w-12 text-primary mb-4" />
-                      <div className="w-16 h-16 rounded-full overflow-hidden">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover"
-                        />
+                <CollapsibleTrigger asChild>
+                  <button className="text-left w-full">
+                    <CardHeader>
+                      <div className="flex items-center justify-between">
+                        <service.icon className="h-12 w-12 text-primary mb-4" />
+                        <div className="w-16 h-16 rounded-full overflow-hidden">
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            className="w-full h-full object-cover"
+                            loading="lazy" // Optimización de carga
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <CardTitle>{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">{service.description}</p>
-                  </CardContent>
+                      <CardTitle>{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">{service.description}</p>
+                    </CardContent>
+                  </button>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
                   <CardContent className="border-t">
