@@ -1,3 +1,4 @@
+import React from 'react';
 import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -6,6 +7,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
+// Definición de los servicios con sus detalles y optimización de las imágenes
 const services = [
   {
     title: "Cuidado Preventivo",
@@ -87,47 +89,55 @@ const services = [
   },
 ];
 
+// Componente optimizado con React.memo
+const ServiceCard = React.memo(({ service }) => (
+  <Collapsible key={service.title}>
+    <Card className="hover:shadow-lg transition-shadow flex flex-col">
+      <CollapsibleTrigger asChild>
+        <button className="text-left w-full">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <service.icon className="h-12 w-12 text-primary mb-4" />
+              <div className="w-16 h-16 rounded-full overflow-hidden">
+                {/* Optimización de imágenes usando srcSet y lazy loading */}
+                <img
+                  srcSet={`/images/mascota-small.webp 300w, ${service.image} 800w`}
+                  sizes="(max-width: 600px) 300px, 800px"
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy" // Lazy loading para optimizar la carga
+                />
+              </div>
+            </div>
+            <CardTitle>{service.title}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600">{service.description}</p>
+          </CardContent>
+        </button>
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <CardContent className="border-t">
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
+            {service.details.map((detail, idx) => (
+              <li key={idx} className="text-sm">{detail}</li>
+            ))}
+          </ul>
+        </CardContent>
+      </CollapsibleContent>
+    </Card>
+  </Collapsible>
+));
+
 const Services = () => {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <Collapsible key={index}>
-              <Card className="hover:shadow-lg transition-shadow flex flex-col">
-                <CollapsibleTrigger asChild>
-                  <button className="text-left w-full">
-                    <CardHeader>
-                      <div className="flex items-center justify-between">
-                        <service.icon className="h-12 w-12 text-primary mb-4" />
-                        <div className="w-16 h-16 rounded-full overflow-hidden">
-                          <img
-                            src={service.image}
-                            alt={service.title}
-                            className="w-full h-full object-cover"
-                            loading="lazy" // Optimización de carga
-                          />
-                        </div>
-                      </div>
-                      <CardTitle>{service.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">{service.description}</p>
-                    </CardContent>
-                  </button>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <CardContent className="border-t">
-                    <ul className="list-disc list-inside space-y-2 text-gray-700">
-                      {service.details.map((detail, idx) => (
-                        <li key={idx} className="text-sm">{detail}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </CollapsibleContent>
-              </Card>
-            </Collapsible>
+          {services.map((service) => (
+            <ServiceCard key={service.title} service={service} />
           ))}
         </div>
       </div>
