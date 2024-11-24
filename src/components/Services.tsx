@@ -1,6 +1,11 @@
 import React from 'react';
 import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 // Definición de los servicios con sus detalles y optimización de las imágenes
 const services = [
@@ -84,35 +89,45 @@ const services = [
   },
 ];
 
+// Componente optimizado con React.memo
 const ServiceCard = React.memo(({ service }) => (
-  <Card key={service.title} className="hover:shadow-lg transition-shadow flex flex-col">
-    <button className="text-left w-full">
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <service.icon className="h-12 w-12 text-primary mb-4" />
-          <div className="w-16 h-16 rounded-full overflow-hidden">
-            {/* Optimización de imágenes usando un solo tamaño y ajustando con Tailwind */}
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-full object-cover" // Ajuste de imagen para que se cubra el área sin distorsionarse
-              loading="lazy" // Lazy loading para optimizar la carga
-            />
-          </div>
-        </div>
-        <CardTitle>{service.title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-gray-600">{service.description}</p>
-        {/* Mostrar los detalles directamente sin acordeón */}
-        <ul className="list-disc list-inside space-y-2 text-gray-700 mt-4">
-          {service.details.map((detail, idx) => (
-            <li key={idx} className="text-sm">{detail}</li>
-          ))}
-        </ul>
-      </CardContent>
-    </button>
-  </Card>
+  <Collapsible key={service.title}>
+    <Card className="hover:shadow-lg transition-shadow flex flex-col">
+      <CollapsibleTrigger asChild>
+        <button className="text-left w-full">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <service.icon className="h-12 w-12 text-primary mb-4" />
+              <div className="w-16 h-16 rounded-full overflow-hidden">
+                {/* Optimización de imágenes usando srcSet y lazy loading */}
+                <img
+                  srcSet={`/images/mascota-small.webp 300w, ${service.image} 800w`}
+                  sizes="(max-width: 600px) 300px, 800px"
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy" // Lazy loading para optimizar la carga
+                />
+              </div>
+            </div>
+            <CardTitle>{service.title}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600">{service.description}</p>
+          </CardContent>
+        </button>
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <CardContent className="border-t">
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
+            {service.details.map((detail, idx) => (
+              <li key={idx} className="text-sm">{detail}</li>
+            ))}
+          </ul>
+        </CardContent>
+      </CollapsibleContent>
+    </Card>
+  </Collapsible>
 ));
 
 const Services = () => {
