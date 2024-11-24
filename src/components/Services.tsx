@@ -94,8 +94,8 @@ const ServiceCard = React.memo(({ service }) => (
           <div className="w-16 h-16 rounded-full overflow-hidden">
             {/* Optimización de imágenes usando srcSet y lazy loading */}
             <img
-              srcSet={`/images/mascota-small.webp 300w, ${service.image} 800w`}
-              sizes="(max-width: 600px) 300px, 800px"
+              srcSet={`/images/mascota-small.webp 300w, ${service.image} 600w, ${service.image} 1200w`}
+              sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
               src={service.image}
               alt={service.title}
               className="w-full h-full object-cover"
