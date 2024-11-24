@@ -1,13 +1,13 @@
-import React from "react";
-import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users, ChevronDown } from "lucide-react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import React from 'react';
+import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
-// Definición de los servicios
+// Definición de los servicios con sus detalles
 const services = [
   {
     title: "Cuidado Preventivo",
@@ -18,8 +18,8 @@ const services = [
       "Vacunas y refuerzos",
       "Prevención y control de parásitos",
       "Evaluaciones de salud dental",
-      "Asesoramiento nutricional",
-    ],
+      "Asesoramiento nutricional"
+    ]
   },
   {
     title: "Tratamiento Médico",
@@ -30,43 +30,88 @@ const services = [
       "Cirugías y procedimientos",
       "Cuidados postoperatorios",
       "Tratamientos especializados",
-      "Monitoreo continuo",
-    ],
+      "Monitoreo continuo"
+    ]
   },
-  // Agrega más servicios según sea necesario
+  {
+    title: "Tienda de Mascotas",
+    description: "Productos de calidad para el cuidado y diversión de tu mascota",
+    icon: ShoppingBag,
+    details: [
+      "Alimentos premium",
+      "Suplementos y vitaminas",
+      "Productos de higiene",
+      "Juguetes y accesorios",
+      "Productos para el cuidado dental"
+    ]
+  },
+  {
+    title: "Bienestar Animal",
+    description: "Asesoramiento nutricional y consejos de estilo de vida para tu mascota",
+    icon: Dog,
+    details: [
+      "Planes nutricionales personalizados",
+      "Consejos de ejercicio",
+      "Evaluación del comportamiento",
+      "Programas de bienestar",
+      "Seguimiento del desarrollo"
+    ]
+  },
+  {
+    title: "Animales Exóticos",
+    description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
+    icon: Rabbit,
+    details: [
+      "Atención especializada para aves",
+      "Cuidado de reptiles",
+      "Tratamiento de pequeños mamíferos",
+      "Nutrición específica",
+      "Ambiente y hábitat"
+    ]
+  },
+  {
+    title: "Equipo Humano",
+    description: "Nuestro equipo de profesionales altamente cualificados",
+    icon: Users,
+    details: [
+      "Veterinarios especializados",
+      "Auxiliares veterinarios",
+      "La mejor atención al cliente",
+      "El mejor trato para tu mascota",
+      "Equipo de emergencias"
+    ]
+  },
 ];
 
-const ServiceCard = React.memo(({ service }) => (
-  <Collapsible key={service.title}>
-    <Card className="hover:shadow-lg transition-shadow">
-      <CollapsibleTrigger asChild>
-        <button className="w-full text-left flex flex-col">
-          <CardHeader className="flex items-center justify-between">
-            {/* Ícono y contenido alineados */}
-            <div className="flex items-center space-x-4">
-              <service.icon className="h-6 w-6 text-primary" />
-              <div>
-                <h3 className="text-lg font-bold">{service.title}</h3>
-                <p className="text-gray-600 text-sm">{service.description}</p>
+// Componente optimizado con React.memo
+const ServiceCard = React.memo(({ service }) => {
+  return (
+    <Collapsible key={service.title}>
+      <Card className="hover:shadow-lg transition-shadow flex flex-col">
+        <CollapsibleTrigger asChild>
+          <button className="text-left w-full">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <service.icon className="h-12 w-12 text-primary mb-4" />
               </div>
-            </div>
-            {/* Chevron a la derecha */}
-            <ChevronDown className="h-5 w-5 text-gray-500 transition-transform duration-300 group-[state=open]:rotate-180" />
-          </CardHeader>
-        </button>
-      </CollapsibleTrigger>
-      <CollapsibleContent>
-        <CardContent className="border-t">
-          <ul className="list-disc list-inside space-y-2 text-gray-700">
-            {service.details.map((detail, idx) => (
-              <li key={idx} className="text-sm">{detail}</li>
-            ))}
-          </ul>
-        </CardContent>
-      </CollapsibleContent>
-    </Card>
-  </Collapsible>
-));
+              <CardTitle>{service.title}</CardTitle>
+              <p className="text-gray-600">{service.description}</p>
+            </CardHeader>
+          </button>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <CardContent className="border-t">
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              {service.details.map((detail, idx) => (
+                <li key={idx} className="text-sm">{detail}</li>
+              ))}
+            </ul>
+          </CardContent>
+        </CollapsibleContent>
+      </Card>
+    </Collapsible>
+  );
+});
 
 const Services = () => {
   return (
