@@ -24,6 +24,7 @@ const Hero = () => {
               src="/images/mascota.webp"
               alt="Mascota feliz en el veterinario"
               className="rounded-lg shadow-xl w-full max-w-2xl mx-auto"
+              loading="lazy"
             />
           </div>
         </div>
