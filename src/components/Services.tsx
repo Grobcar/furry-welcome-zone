@@ -18,8 +18,8 @@ const services = [
       "Vacunas y refuerzos",
       "Prevención y control de parásitos",
       "Evaluaciones de salud dental",
-      "Asesoramiento nutricional",
-    ],
+      "Asesoramiento nutricional"
+    ]
   },
   {
     title: "Tratamiento Médico",
@@ -30,11 +30,59 @@ const services = [
       "Cirugías y procedimientos",
       "Cuidados postoperatorios",
       "Tratamientos especializados",
-      "Monitoreo continuo",
-    ],
+      "Monitoreo continuo"
+    ]
   },
-  // Agrega más servicios según sea necesario
+  {
+    title: "Tienda de Mascotas",
+    description: "Productos de calidad para el cuidado y diversión de tu mascota",
+    icon: ShoppingBag,
+    details: [
+      "Alimentos premium",
+      "Suplementos y vitaminas",
+      "Productos de higiene",
+      "Juguetes y accesorios",
+      "Productos para el cuidado dental"
+    ]
+  },
+  {
+    title: "Bienestar Animal",
+    description: "Asesoramiento nutricional y consejos de estilo de vida para tu mascota",
+    icon: Dog,
+    details: [
+      "Planes nutricionales personalizados",
+      "Consejos de ejercicio",
+      "Evaluación del comportamiento",
+      "Programas de bienestar",
+      "Seguimiento del desarrollo"
+    ]
+  },
+  {
+    title: "Animales Exóticos",
+    description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
+    icon: Rabbit,
+    details: [
+      "Atención especializada para aves",
+      "Cuidado de reptiles",
+      "Tratamiento de pequeños mamíferos",
+      "Nutrición específica",
+      "Ambiente y hábitat"
+    ]
+  },
+  {
+    title: "Equipo Humano",
+    description: "Nuestro equipo de profesionales altamente cualificados",
+    icon: Users,
+    details: [
+      "Veterinarios especializados",
+      "Auxiliares veterinarios",
+      "La mejor atención al cliente",
+      "El mejor trato para tu mascota",
+      "Equipo de emergencias"
+    ]
+  },
 ];
+
 
 const ServiceCard = React.memo(({ service }) => (
   <Collapsible key={service.title}>
