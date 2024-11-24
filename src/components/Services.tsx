@@ -1,6 +1,11 @@
 import React from 'react';
 import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 // Definición de los servicios con sus detalles
 const services = [
@@ -79,24 +84,34 @@ const services = [
 ];
 
 // Componente optimizado con React.memo
-const ServiceCard = React.memo(({ service }) => (
-  <Card className="hover:shadow-lg transition-shadow flex flex-col">
-    <CardHeader>
-      <div className="flex items-center justify-between">
-        <service.icon className="h-12 w-12 text-primary mb-4" />
-      </div>
-      <CardTitle>{service.title}</CardTitle>
-    </CardHeader>
-    <CardContent>
-      <p className="text-gray-600">{service.description}</p>
-      <ul className="list-disc list-inside space-y-2 text-gray-700 mt-4">
-        {service.details.map((detail, idx) => (
-          <li key={idx} className="text-sm">{detail}</li>
-        ))}
-      </ul>
-    </CardContent>
-  </Card>
-));
+const ServiceCard = React.memo(({ service }) => {
+  return (
+    <Collapsible key={service.title}>
+      <Card className="hover:shadow-lg transition-shadow flex flex-col">
+        <CollapsibleTrigger asChild>
+          <button className="text-left w-full">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <service.icon className="h-12 w-12 text-primary mb-4" />
+              </div>
+              <CardTitle>{service.title}</CardTitle>
+              <p className="text-gray-600">{service.description}</p>
+            </CardHeader>
+          </button>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <CardContent className="border-t">
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              {service.details.map((detail, idx) => (
+                <li key={idx} className="text-sm">{detail}</li>
+              ))}
+            </ul>
+          </CardContent>
+        </CollapsibleContent>
+      </Card>
+    </Collapsible>
+  );
+});
 
 const Services = () => {
   return (
