@@ -8,10 +8,11 @@ import KeyPoints from "@/components/KeyPoints";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <KeyPoints />
-      <Hero />
+      
+      <Hero />      
+      <Services />
       <Team /> 
-      <Services />    
+      <KeyPoints />
       <Testimonials />
       <ContactSection />
     </div>
