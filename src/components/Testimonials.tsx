@@ -2,12 +2,12 @@ const testimonials = [
   {
     name: "Gemma",
     text: "Silvia lleva años atendiendo a mis mascotas, y estamos encantados, con su gran dedicación, muy atenta y preocupada, tiene una gran vocación! Solo tengo buenas palabras para ella!",
-    pet: "Luna, Persian Cat",
+    pet: "Luna",
   },
   {
-    name: "James Wilson",
-    text: "Professional, caring, and thorough. Best vet clinic I've ever been to!",
-    pet: "Luna, Persian Cat",
+    name: "Eduardo",
+    text: "Estoy encantado de compartir mi experiencia en la veterinaria Gaiteira. Desde el primer día que llevamos a nuestra perra, allí, hemos recibido un servicio excepcional por parte de Silvia y su equipo. ",
+    pet: "Jeju",
   },
 ];
 
