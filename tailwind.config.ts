@@ -58,19 +58,21 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      keyframes: {
+     keyframes: {
+        // Animación de despliegue y replegado del acordeón
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: { maxHeight: "0" },
+          to: { maxHeight: "500px" }, // Ajusta según el tamaño máximo que necesites
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: { maxHeight: "500px" }, // Ajusta según el tamaño máximo que necesites
+          to: { maxHeight: "0" },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        // Animación de apertura y cierre del acordeón
+        "accordion-down": "accordion-down 0.3s ease-out",
+        "accordion-up": "accordion-up 0.3s ease-out",
       },
     },
   },
