@@ -1,19 +1,13 @@
 import React from 'react';
 import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 
-// Definición de los servicios con sus detalles y optimización de las imágenes
+// Definición de los servicios con sus detalles
 const services = [
   {
     title: "Cuidado Preventivo",
     description: "Chequeos regulares y vacunaciones para mantener a tus mascotas saludables",
     icon: Heart,
-    image: "/images/mascota.webp",
     details: [
       "Exámenes anuales de bienestar",
       "Vacunas y refuerzos",
@@ -26,7 +20,6 @@ const services = [
     title: "Tratamiento Médico",
     description: "Diagnóstico y tratamiento experto para diversas condiciones",
     icon: Stethoscope,
-    image: "/images/tratamiento.webp",
     details: [
       "Diagnóstico y tratamiento de enfermedades",
       "Cirugías y procedimientos",
@@ -39,7 +32,6 @@ const services = [
     title: "Tienda de Mascotas",
     description: "Productos de calidad para el cuidado y diversión de tu mascota",
     icon: ShoppingBag,
-    image: "/images/tienda.webp",
     details: [
       "Alimentos premium",
       "Suplementos y vitaminas",
@@ -52,7 +44,6 @@ const services = [
     title: "Bienestar Animal",
     description: "Asesoramiento nutricional y consejos de estilo de vida para tu mascota",
     icon: Dog,
-    image: "/images/bienestar.webp",
     details: [
       "Planes nutricionales personalizados",
       "Consejos de ejercicio",
@@ -65,7 +56,6 @@ const services = [
     title: "Animales Exóticos",
     description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
     icon: Rabbit,
-    image: "/images/exoticos.webp",
     details: [
       "Atención especializada para aves",
       "Cuidado de reptiles",
@@ -78,7 +68,6 @@ const services = [
     title: "Equipo Humano",
     description: "Nuestro equipo de profesionales altamente cualificados",
     icon: Users,
-    image: "/images/mascota.webp",
     details: [
       "Veterinarios especializados",
       "Auxiliares veterinarios",
@@ -91,43 +80,22 @@ const services = [
 
 // Componente optimizado con React.memo
 const ServiceCard = React.memo(({ service }) => (
-  <Collapsible key={service.title}>
-    <Card className="hover:shadow-lg transition-shadow flex flex-col">
-      <CollapsibleTrigger asChild>
-        <button className="text-left w-full">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <service.icon className="h-12 w-12 text-primary mb-4" />
-              <div className="w-16 h-16 rounded-full overflow-hidden">
-                {/* Optimización de imágenes usando srcSet y lazy loading */}
-                <img
-                  srcSet={`/images/mascota-small.webp 300w, ${service.image} 800w`}
-                  sizes="(max-width: 600px) 300px, 800px"
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy" // Lazy loading para optimizar la carga
-                />
-              </div>
-            </div>
-            <CardTitle>{service.title}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-600">{service.description}</p>
-          </CardContent>
-        </button>
-      </CollapsibleTrigger>
-      <CollapsibleContent>
-        <CardContent className="border-t">
-          <ul className="list-disc list-inside space-y-2 text-gray-700">
-            {service.details.map((detail, idx) => (
-              <li key={idx} className="text-sm">{detail}</li>
-            ))}
-          </ul>
-        </CardContent>
-      </CollapsibleContent>
-    </Card>
-  </Collapsible>
+  <Card className="hover:shadow-lg transition-shadow flex flex-col">
+    <CardHeader>
+      <div className="flex items-center justify-between">
+        <service.icon className="h-12 w-12 text-primary mb-4" />
+      </div>
+      <CardTitle>{service.title}</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <p className="text-gray-600">{service.description}</p>
+      <ul className="list-disc list-inside space-y-2 text-gray-700 mt-4">
+        {service.details.map((detail, idx) => (
+          <li key={idx} className="text-sm">{detail}</li>
+        ))}
+      </ul>
+    </CardContent>
+  </Card>
 ));
 
 const Services = () => {
