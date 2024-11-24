@@ -1,5 +1,5 @@
-import React from 'react';
-import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users } from "lucide-react";
+import React from "react";
+import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users, ChevronDown } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Collapsible,
@@ -18,8 +18,8 @@ const services = [
       "Vacunas y refuerzos",
       "Prevención y control de parásitos",
       "Evaluaciones de salud dental",
-      "Asesoramiento nutricional"
-    ]
+      "Asesoramiento nutricional",
+    ],
   },
   {
     title: "Tratamiento Médico",
@@ -30,8 +30,8 @@ const services = [
       "Cirugías y procedimientos",
       "Cuidados postoperatorios",
       "Tratamientos especializados",
-      "Monitoreo continuo"
-    ]
+      "Monitoreo continuo",
+    ],
   },
   {
     title: "Tienda de Mascotas",
@@ -42,8 +42,8 @@ const services = [
       "Suplementos y vitaminas",
       "Productos de higiene",
       "Juguetes y accesorios",
-      "Productos para el cuidado dental"
-    ]
+      "Productos para el cuidado dental",
+    ],
   },
   {
     title: "Bienestar Animal",
@@ -54,8 +54,8 @@ const services = [
       "Consejos de ejercicio",
       "Evaluación del comportamiento",
       "Programas de bienestar",
-      "Seguimiento del desarrollo"
-    ]
+      "Seguimiento del desarrollo",
+    ],
   },
   {
     title: "Animales Exóticos",
@@ -66,8 +66,8 @@ const services = [
       "Cuidado de reptiles",
       "Tratamiento de pequeños mamíferos",
       "Nutrición específica",
-      "Ambiente y hábitat"
-    ]
+      "Ambiente y hábitat",
+    ],
   },
   {
     title: "Equipo Humano",
@@ -78,12 +78,11 @@ const services = [
       "Auxiliares veterinarios",
       "La mejor atención al cliente",
       "El mejor trato para tu mascota",
-      "Equipo de emergencias"
-    ]
+      "Equipo de emergencias",
+    ],
   },
 ];
 
-// Componente optimizado con React.memo
 const ServiceCard = React.memo(({ service }) => (
   <Collapsible key={service.title}>
     <Card className="hover:shadow-lg transition-shadow flex flex-col">
