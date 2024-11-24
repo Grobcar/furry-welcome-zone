@@ -1,3 +1,41 @@
+import React from "react";
+import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users, ChevronDown } from "lucide-react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+
+// Definición de los servicios
+const services = [
+  {
+    title: "Cuidado Preventivo",
+    description: "Chequeos regulares y vacunaciones para mantener a tus mascotas saludables",
+    icon: Heart,
+    details: [
+      "Exámenes anuales de bienestar",
+      "Vacunas y refuerzos",
+      "Prevención y control de parásitos",
+      "Evaluaciones de salud dental",
+      "Asesoramiento nutricional",
+    ],
+  },
+  {
+    title: "Tratamiento Médico",
+    description: "Diagnóstico y tratamiento experto para diversas condiciones",
+    icon: Stethoscope,
+    details: [
+      "Diagnóstico y tratamiento de enfermedades",
+      "Cirugías y procedimientos",
+      "Cuidados postoperatorios",
+      "Tratamientos especializados",
+      "Monitoreo continuo",
+    ],
+  },
+  // Agrega más servicios según sea necesario
+];
+
 const ServiceCard = React.memo(({ service }) => (
   <Collapsible key={service.title}>
     <Card className="hover:shadow-lg transition-shadow">
