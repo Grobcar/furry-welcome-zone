@@ -21,7 +21,7 @@ const Hero = () => {
           </div>
           <div className="flex-1 lg:flex-[1.5]">
             <img
-              src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97"
+              src="/images/mascota.webp"
               alt="Mascota feliz en el veterinario"
               className="rounded-lg shadow-xl w-full max-w-2xl mx-auto"
             />
