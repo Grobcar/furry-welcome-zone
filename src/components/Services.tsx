@@ -84,7 +84,6 @@ const services = [
   },
 ];
 
-// Componente optimizado con React.memo sin animación de acordeón
 const ServiceCard = React.memo(({ service }) => (
   <Card key={service.title} className="hover:shadow-lg transition-shadow flex flex-col">
     <button className="text-left w-full">
@@ -92,13 +91,11 @@ const ServiceCard = React.memo(({ service }) => (
         <div className="flex items-center justify-between">
           <service.icon className="h-12 w-12 text-primary mb-4" />
           <div className="w-16 h-16 rounded-full overflow-hidden">
-            {/* Optimización de imágenes usando srcSet y lazy loading */}
+            {/* Optimización de imágenes usando un solo tamaño y ajustando con Tailwind */}
             <img
-              srcSet={`/images/mascota-small.webp 300w, ${service.image} 600w, ${service.image} 1200w`}
-              sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
               src={service.image}
               alt={service.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover" // Ajuste de imagen para que se cubra el área sin distorsionarse
               loading="lazy" // Lazy loading para optimizar la carga
             />
           </div>
