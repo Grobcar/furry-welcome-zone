@@ -89,16 +89,16 @@ const ServiceCard = React.memo(({ service }) => (
       <CollapsibleTrigger asChild>
         <button className="text-left w-full">
           <CardHeader className="flex items-center justify-between">
-            {/* Ícono y texto alineados horizontalmente */}
+            {/* Ícono más grande y alineado */}
             <div className="flex items-center space-x-4">
-              <service.icon className="h-8 w-8 text-primary" />
+              <service.icon className="h-12 w-12 text-primary" />
               <div>
                 <CardTitle className="text-lg font-bold">{service.title}</CardTitle>
                 <p className="text-gray-600 text-sm">{service.description}</p>
               </div>
             </div>
             {/* Flecha en la esquina derecha */}
-            <ChevronDown className="h-5 w-5 text-gray-500 transition-transform duration-300 group-[state=open]:rotate-180" />
+            <ChevronDown className="h-6 w-6 text-gray-500 transition-transform duration-300 group-[state=open]:rotate-180" />
           </CardHeader>
         </button>
       </CollapsibleTrigger>
