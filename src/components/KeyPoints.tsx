@@ -31,7 +31,7 @@ const KeyPoints = () => {
         <div className="max-w-4xl mx-auto mb-16 text-center">
           <div className="relative rounded-2xl overflow-hidden mb-8 shadow-xl">
             <img
-              src="https://images.unsplash.com/photo-1452378174528-3090a4bba7b2"
+              src="/images/vet.webp"
               alt="Equipo veterinario en acción"
               className="w-full h-[300px] object-cover"
             />
