@@ -10,7 +10,7 @@ const ContactSection = () => {
             <div className="flex items-start gap-4">
               <MapPin className="h-6 w-6 text-primary mt-1" />
               <div>
-                <h3 className="font-bold mb-2">Location</h3>
+                <h3 className="font-bold mb-2">Localización</h3>
                 <p className="text-gray-600">
                   Calle Petín, 3
                   <br />
