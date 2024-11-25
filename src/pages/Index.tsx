@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Who from "@/components/Who";
 import Services from "@/components/Services";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
