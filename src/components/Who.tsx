@@ -21,7 +21,7 @@ const Who = () => {
               </p>
               <div className="relative rounded-2xl overflow-hidden mb-8 shadow-xl">
                 <img
-                  src="/images/vet.webp"
+                  src="/images/mascota.webp"
                   alt="Equipo veterinario en acción"
                   className="w-full h-64 object-cover sm:h-auto sm:max-h-[300px] object-contain"
                   loading="lazy"
