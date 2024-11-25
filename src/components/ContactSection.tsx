@@ -76,7 +76,7 @@ const ContactSection = () => {
           </div>
           <div className="h-[600px] rounded-lg overflow-hidden shadow-lg">
             <iframe
-    src={`https://www.google.com/maps?q=${43.354100794160665},${-8.400430302581}&hl=es;z=14&output=embed`}
+     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.1029800184997!2d-8.403005224908865!3d43.35395647173523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2e7c9c3ee48877%3A0x94af300eb7ce1b13!2sCl%C3%ADnica%20Veterinaria%20Gaiteira!5e0!3m2!1ses!2ses!4v1723738537701!5m2!1ses!2ses" 
               width="100%"
               height="100%"
               style={{ border: 0 }}
