@@ -9,7 +9,7 @@ const Who = () => {
         </h2>
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto mb-16 text-center">
+            <div className="max-w-4xl mx-auto mb-12 text-center">
               <div className="relative rounded-2xl overflow-hidden mb-8 shadow-xl">
                 <img
                   src="/images/mascota.webp"
