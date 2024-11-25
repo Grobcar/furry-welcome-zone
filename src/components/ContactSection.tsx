@@ -76,7 +76,7 @@ const ContactSection = () => {
           </div>
           <div className="h-[600px] rounded-lg overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.7152203640535!2d-118.24368384866867!3d34.05267002569443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6fd5e4ee617%3A0x55d8c718c801e85c!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1635188000000!5m2!1sen!2sus"
+             src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11956.343330223844!2d${-8.400430302581}!3d${43.354100794160665}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDI2JzQ1LjAiTiA8wrA1MycwOC4xIl8g0PzOQQ!5e0!3m2!1ses!2ses!4v1635188000000`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
