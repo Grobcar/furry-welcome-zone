@@ -40,24 +40,20 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Contacto</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>123 Calle Principal</li>
-              <li>A Coruña, España</li>
-              <li>Tel: (555) 123-4567</li>
-              <li>Email: info@veterinariagaiteira.com</li>
+              <li>Calle Petín, 3</li>
+              <li>15006, A Coruña</li>
+              <li>Tel: 981 135 535</li>
+              <li>Email: clinica.veterinaria.gaiteira@gmail.com</li>
             </ul>
           </div>
           <div>
             <h3 className="text-lg font-bold mb-4">Síguenos</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white">
-                <Facebook className="h-6 w-6" />
-              </a>
+             
               <a href="#" className="text-gray-400 hover:text-white">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <Twitter className="h-6 w-6" />
-              </a>
+             
             </div>
           </div>
         </div>
