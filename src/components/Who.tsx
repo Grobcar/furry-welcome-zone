@@ -23,7 +23,7 @@ const Who = () => {
                 <img
                   src="/images/vet.webp"
                   alt="Equipo veterinario en acción"
-                  className="w-full max-w-full h-auto object-contain"
+                  className="w-full h-64 object-cover sm:h-auto sm:max-h-[500px] object-contain"
                   loading="lazy"
                 />
               </div>
