@@ -14,7 +14,7 @@ const ContactSection = () => {
                 <p className="text-gray-600">
                   Calle Petín, 3
                   <br />
-                   A Coruña, 15006
+                  A Coruña, 15006
                   <br />
                   A Coruña
                 </p>
@@ -39,18 +39,16 @@ const ContactSection = () => {
                 <h3 className="font-bold mb-2">Contacto</h3>
                 <p className="text-gray-600">
                   Teléfono: 981 135 535
-                  <br />
-                  
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Correo className="h-6 w-6 text-primary mt-1" />
+              <Mail className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h3 className="font-bold mb-2">Email</h3>
                 <p className="text-gray-600">
                   clinica.veterinaria.gaiteira@gmail.com
-                  <br />
-                 
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
