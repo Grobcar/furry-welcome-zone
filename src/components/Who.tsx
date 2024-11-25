@@ -1,3 +1,5 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 const Who = () => {
   return (
         <section className="py-20 bg-gray-50">
