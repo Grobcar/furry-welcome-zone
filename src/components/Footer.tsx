@@ -46,14 +46,16 @@ const Footer = () => {
               <li>Email: clinica.veterinaria.gaiteira@gmail.com</li>
             </ul>
           </div>
-         <div className="text-center">
-  <h3 className="text-lg font-bold mb-4">Síguenos</h3>
-  <div className="flex justify-center space-x-6">
-    <a href="#" className="text-gray-400 hover:text-white">
-      <Instagram className="h-8 w-8" /> {/* Aumenta el tamaño del icono */}
-    </a>
-  </div>
-</div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Síguenos</h3>
+            <div className="flex space-x-4">
+             
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Instagram className="h-6 w-6" />
+              </a>
+             
+            </div>
+          </div>
           </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
