@@ -12,11 +12,11 @@ const ContactSection = () => {
               <div>
                 <h3 className="font-bold mb-2">Location</h3>
                 <p className="text-gray-600">
-                  123 Pet Care Lane
+                  Calle Petín, 3
                   <br />
-                  Veterinary District, CA 90210
+                   A Coruña, 15006
                   <br />
-                  United States
+                  A Coruña
                 </p>
               </div>
             </div>
@@ -27,34 +27,30 @@ const ContactSection = () => {
                 <p className="text-gray-600">
                   Lunes - Viernes: 10am - 4pm
                   <br />
-                  Saturday: Cerrado
+                  Sábado: Cerrado
                   <br />
-                  Sunday: Cerrado
+                  Domingo: Cerrado
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Phone className="h-6 w-6 text-primary mt-1" />
               <div>
-                <h3 className="font-bold mb-2">Contact</h3>
+                <h3 className="font-bold mb-2">Contacto</h3>
                 <p className="text-gray-600">
-                  Phone: (555) 123-4567
+                  Teléfono: 981 135 535
                   <br />
-                  Emergency: (555) 911-PETS
-                  <br />
-                  Fax: (555) 123-4568
-                </p>
+                  
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Mail className="h-6 w-6 text-primary mt-1" />
+              <Correo className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h3 className="font-bold mb-2">Email</h3>
                 <p className="text-gray-600">
-                  General Inquiries: info@pawsomecare.com
+                  clinica.veterinaria.gaiteira@gmail.com
                   <br />
-                  Appointments: appointments@pawsomecare.com
-                </p>
+                 
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -62,20 +58,20 @@ const ContactSection = () => {
               <div>
                 <h3 className="font-bold mb-2">Parking</h3>
                 <p className="text-gray-600">
-                  Free parking available on-site
+                  Parking disponible en los alrededores
                   <br />
-                  Handicap accessible
+                  Plazas de minusválido disponibles
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <CreditCard className="h-6 w-6 text-primary mt-1" />
               <div>
-                <h3 className="font-bold mb-2">Payment Methods</h3>
+                <h3 className="font-bold mb-2">Métodos de pago</h3>
                 <p className="text-gray-600">
-                  We accept all major credit cards
+                  Aceptamos pago con tarjeta
                   <br />
-                  Insurance and payment plans available
+                  Seguro de mascotas disponible
                 </p>
               </div>
             </div>
