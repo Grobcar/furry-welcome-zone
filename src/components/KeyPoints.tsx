@@ -30,12 +30,13 @@ const KeyPoints = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto mb-16 text-center">
           <div className="relative rounded-2xl overflow-hidden mb-8 shadow-xl">
-            <img
-  src="/images/vet.webp"
-  alt="Equipo veterinario en acción"
-  className="w-full h-[300px] object-contain"
-  loading="lazy"
-       /> 
+                        <img
+              src="/images/vet.webp"
+              alt="Equipo veterinario en acción"
+              className="w-full h-[300px] object-cover"
+              loading="lazy"
+            />
+
           </div>
           <p className="text-lg text-gray-700 leading-relaxed">
             En Veterinaria Gaiteira, nos enorgullece ofrecer un servicio veterinario excepcional 
