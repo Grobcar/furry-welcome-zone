@@ -4,7 +4,7 @@ const Who = () => {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center">
+        <h2 className="text-3xl font-bold text-center mb-12">
           Quienes Somos
         </h2>
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -19,11 +19,11 @@ const Who = () => {
                 mascotas son parte de su familia, y nos comprometemos a tratarlas con el mismo 
                 amor y respeto.
               </p>
-              <div className="relative rounded-2xl overflow-hidden mb-8 shadow-xl">
+              <div className="relative rounded-2xl overflow-hidden mb-12 shadow-xl">
                 <img
                   src="/images/mascota.webp"
                   alt="Equipo veterinario en acción"
-                  className="w-full h-[300px] object-cover"
+                  className="w-full h-64 object-cover" 
                   loading="lazy"
                 />
               </div>
