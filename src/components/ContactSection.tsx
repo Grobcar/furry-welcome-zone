@@ -14,7 +14,7 @@ const ContactSection = () => {
                 <p className="text-gray-600">
                   Calle Petín, 3
                   <br />
-                15006, A Coruña
+                15009, A Coruña
                   <br />
                   A Coruña
                 </p>
