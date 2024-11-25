@@ -76,7 +76,7 @@ const ContactSection = () => {
           </div>
           <div className="h-[600px] rounded-lg overflow-hidden shadow-lg">
             <iframe
-             src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11956.343330223844!2d${-8.400430302581}!3d${43.354100794160665}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDI2JzQ1LjAiTiA8wrA1MycwOC4xIl8g0PzOQQ!5e0!3m2!1ses!2ses!4v1635188000000`}
+    src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${43.354100794160665},${-8.400430302581}`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
