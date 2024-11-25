@@ -34,6 +34,7 @@ const KeyPoints = () => {
               src="/images/vet.webp"
               alt="Equipo veterinario en acción"
               className="w-full h-[300px] object-cover"
+              loading="lazy"
             />
           </div>
           <p className="text-lg text-gray-700 leading-relaxed">
