@@ -46,3 +46,4 @@ const Who = () => {
     </section>
   );
 };
+        export default Who;
