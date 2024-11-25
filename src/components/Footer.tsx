@@ -53,6 +53,7 @@ const Footer = () => {
       <Instagram className="h-8 w-8" /> {/* Aumenta el tamaño del icono */}
     </a>
   </div>
+             </div>
           </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
