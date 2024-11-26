@@ -83,8 +83,8 @@ const services = [
   },
 ];
 
-const ServiceCard = React.memo(({ service }) => (
-  <Collapsible key={service.title}>
+const ServiceCard = React.memo(({ service }: { service: typeof services[number] }) => (
+  <Collapsible className="group" key={service.title}>
     <Card className="hover:shadow-lg transition-shadow flex flex-col">
       <CollapsibleTrigger asChild>
         <button className="text-left w-full">
