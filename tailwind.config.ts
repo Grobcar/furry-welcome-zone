@@ -1,80 +1,133 @@
-import type { Config } from "tailwindcss";
+import React from "react";
+import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users, ChevronDown } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
-export default {
-  darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
-  prefix: "",
-  theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
-    extend: {
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "#2DD4BF",
-          foreground: "#FFFFFF",
-        },
-        secondary: {
-          DEFAULT: "#4B5563",
-          foreground: "#FFFFFF",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-     keyframes: {
-        // Animación de despliegue y replegado del acordeón
-        "accordion-down": {
-          from: { maxHeight: "0" },
-          to: { maxHeight: "500px" }, // Ajusta según el tamaño máximo que necesites
-        },
-        "accordion-up": {
-          from: { maxHeight: "500px" }, // Ajusta según el tamaño máximo que necesites
-          to: { maxHeight: "0" },
-        },
-      },
-      animation: {
-        // Animación de apertura y cierre del acordeón
-        "accordion-down": "accordion-down 0.3s ease-out",
-        "accordion-up": "accordion-up 0.3s ease-out",
-      },
-    },
+// Definición de los servicios con sus detalles
+const services = [
+  {
+    title: "Cuidado Preventivo",
+    description: "Chequeos regulares y vacunaciones para mantener a tus mascotas saludables",
+    icon: Heart,
+    details: [
+      "Exámenes anuales de bienestar",
+      "Vacunas y refuerzos",
+      "Prevención y control de parásitos",
+      "Evaluaciones de salud dental",
+      "Asesoramiento nutricional",
+    ],
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  {
+    title: "Tratamiento Médico",
+    description: "Diagnóstico y tratamiento experto para diversas condiciones",
+    icon: Stethoscope,
+    details: [
+      "Diagnóstico y tratamiento de enfermedades",
+      "Cirugías y procedimientos",
+      "Cuidados postoperatorios",
+      "Tratamientos especializados",
+      "Monitoreo continuo",
+    ],
+  },
+  {
+    title: "Tienda de Mascotas",
+    description: "Productos de calidad para el cuidado y diversión de tu mascota",
+    icon: ShoppingBag,
+    details: [
+      "Alimentos premium",
+      "Suplementos y vitaminas",
+      "Productos de higiene",
+      "Juguetes y accesorios",
+      "Productos para el cuidado dental",
+    ],
+  },
+  {
+    title: "Bienestar Animal",
+    description: "Asesoramiento nutricional y consejos de estilo de vida para tu mascota",
+    icon: Dog,
+    details: [
+      "Planes nutricionales personalizados",
+      "Consejos de ejercicio",
+      "Evaluación del comportamiento",
+      "Programas de bienestar",
+      "Seguimiento del desarrollo",
+    ],
+  },
+  {
+    title: "Animales Exóticos",
+    description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
+    icon: Rabbit,
+    details: [
+      "Atención especializada para aves",
+      "Cuidado de reptiles",
+      "Tratamiento de pequeños mamíferos",
+      "Nutrición específica",
+      "Ambiente y hábitat",
+    ],
+  },
+  {
+    title: "Equipo Humano",
+    description: "Nuestro equipo de profesionales altamente cualificados",
+    icon: Users,
+    details: [
+      "Veterinarios especializados",
+      "Auxiliares veterinarios",
+      "La mejor atención al cliente",
+      "El mejor trato para tu mascota",
+      "Equipo de emergencias",
+    ],
+  },
+];
+
+const ServiceCard = React.memo(({ service }) => (
+  <Collapsible key={service.title}>
+    <Card className="hover:shadow-lg transition-shadow flex flex-col">
+      <CollapsibleTrigger asChild>
+        <button className="text-left w-full">
+          <CardHeader className="flex items-center justify-between">
+            {/* Ícono grande y texto centrado verticalmente */}
+            <div className="flex items-center space-x-4 w-full">
+              <service.icon className="h-16 w-16 text-primary" />
+              <div className="flex flex-col flex-1 items-center">
+                <CardTitle className="text-lg font-bold">{service.title}</CardTitle>
+                <p className="text-gray-600 text-sm text-center">{service.description}</p>
+              </div>
+              {/* Flecha en la esquina derecha */}
+              <ChevronDown className="h-8 w-8 text-gray-500 transition-transform duration-300 group-[state=open]:rotate-180" />
+            </div>
+          </CardHeader>
+        </button>
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <CardContent className="border-t">
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
+            {service.details.map((detail, idx) => (
+              <li key={idx} className="text-sm">{detail}</li>
+            ))}
+          </ul>
+        </CardContent>
+      </CollapsibleContent>
+    </Card>
+  </Collapsible>
+));
+
+const Services = () => {
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <ServiceCard key={service.title} service={service} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;
