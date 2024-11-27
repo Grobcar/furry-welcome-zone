@@ -15,8 +15,8 @@ const Hero = () => {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-10 flex items-end h-screen">
-        <div className="container mx-auto px-4 text-center text-white -mb-20">
+      <div className="relative z-10 flex items-start h-screen pt-24">
+        <div className="container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
             Cuidando de tus Mascotas como Familia
           </h1>
