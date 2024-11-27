@@ -40,7 +40,7 @@ const Hero = () => {
           </div>
 
           {/* Flecha animada */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-8">
             <button
               onClick={scrollToSection}
               className="text-white text-3xl animate-bounce"
