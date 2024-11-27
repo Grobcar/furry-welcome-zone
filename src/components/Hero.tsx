@@ -1,4 +1,5 @@
-import { Phone } from "lucide-react";
+import { Phone, ArrowDown } from "lucide-react";
+import { Link } from "react-scroll"; // Importar Link de react-scroll para el smooth scroll
 
 const Hero = () => {
   return (
@@ -24,12 +25,18 @@ const Hero = () => {
             Bienvenido a Veterinaria Gaiteira. Ofrecemos servicios veterinarios integrales
             con compasión y experiencia para tus queridas mascotas.
           </p>
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-8">
             <button className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors">
               <a href="tel:+34981135535" className="flex items-center">
                 <Phone className="mr-2 h-5 w-5" /> Llámanos
               </a>
             </button>
+          </div>
+          {/* Animated arrow button */}
+          <div className="flex justify-center">
+            <Link to="who" smooth={true} duration={500} className="flex items-center cursor-pointer animate-bounce">
+              <ArrowDown className="h-10 w-10 text-white" />
+            </Link>
           </div>
         </div>
       </div>
