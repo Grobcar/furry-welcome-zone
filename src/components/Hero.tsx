@@ -1,13 +1,6 @@
 import { Phone } from "lucide-react";
-import { useRef } from "react";
 
 const Hero = () => {
-  const sectionRef = useRef(null);
-
-  const scrollToSection = () => {
-    sectionRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div className="relative bg-gray-900">
       {/* Full-section background image */}
@@ -31,30 +24,14 @@ const Hero = () => {
             Bienvenido a Veterinaria Gaiteira. Ofrecemos servicios veterinarios integrales
             con compasión y experiencia para tus queridas mascotas.
           </p>
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center">
             <button className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors">
               <a href="tel:+34981135535" className="flex items-center">
                 <Phone className="mr-2 h-5 w-5" /> Llámanos
               </a>
             </button>
           </div>
-
-          {/* Flecha animada */}
-          <div className="flex justify-center mt-8">
-            <button
-              onClick={scrollToSection}
-              className="text-white text-3xl animate-bounce"
-            >
-              ↓
-            </button>
-          </div>
         </div>
-      </div>
-
-      {/* Sección 'Who' */}
-      <div ref={sectionRef} className="h-screen bg-gray-100">
-        <h2 className="text-4xl text-center pt-20">Who</h2>
-        <p className="text-center mt-4">Contenido de la sección Who</p>
       </div>
     </div>
   );
