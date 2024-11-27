@@ -1,3 +1,4 @@
+import { Phone } from "lucide-react";
 const Hero = () => {
   return (
     <div className="relative bg-gray-900">
