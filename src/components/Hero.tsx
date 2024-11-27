@@ -1,7 +1,16 @@
-import { Phone, ArrowDown } from "lucide-react";
-import { Link } from "react-scroll"; // Importar Link de react-scroll para el smooth scroll
+import { Phone } from "lucide-react";
+import { useRef } from "react";
 
 const Hero = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  // Función para desplazar hacia la sección "Who"
+  const scrollToSection = () => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="relative bg-gray-900">
       {/* Full-section background image */}
@@ -32,13 +41,23 @@ const Hero = () => {
               </a>
             </button>
           </div>
-          {/* Animated arrow button */}
-          <div className="flex justify-center">
-            <Link to="who" smooth={true} duration={500} className="flex items-center cursor-pointer animate-bounce">
-              <ArrowDown className="h-10 w-10 text-white" />
-            </Link>
+
+          {/* Flecha animada */}
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={scrollToSection}
+              className="text-white text-3xl animate-bounce cursor-pointer"
+            >
+              ↓
+            </button>
           </div>
         </div>
+      </div>
+
+      {/* Sección 'Who' */}
+      <div ref={sectionRef} className="h-screen bg-gray-100">
+        <h2 className="text-4xl text-center pt-20">Who</h2>
+        <p className="text-center mt-4">Contenido de la sección Who</p>
       </div>
     </div>
   );
