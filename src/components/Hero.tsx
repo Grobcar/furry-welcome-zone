@@ -14,12 +14,12 @@ const Hero = () => {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-10 flex items-start h-screen pt-24">
+      <div className="relative z-10 flex items-center h-screen">
         <div className="container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Cuidando de tus Mascotas como Familia
           </h1>
-          <p className="text-lg mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
             Bienvenido a Veterinaria Gaiteira. Ofrecemos servicios veterinarios integrales
             con compasión y experiencia para tus queridas mascotas.
           </p>
