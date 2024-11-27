@@ -32,9 +32,9 @@ const Hero = () => {
             </button>
           </div>
           {/* Animated arrow button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-16">
             <a href="#who" className="flex items-center cursor-pointer animate-bounce">
-              <svg className="h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="h-16 w-16 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 5v14M5 12l7 7 7-7"></path>
               </svg>
             </a>
