@@ -14,7 +14,7 @@ const Hero = () => {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-10 flex items-center h-screen py-12 sm:py-16 lg:py-24">
+      <div className="relative z-10 flex items-center h-screen pt-16 sm:pt-20 lg:pt-24">
         <div className="container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
             Cuidando de tus Mascotas como Familia
