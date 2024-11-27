@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
           {/* Animated arrow button */}
           <div className="flex justify-center">
-            <Link to="who" smooth={true} duration={500} className="flex items-center cursor-pointer animate-bounce">
+            <Link to="Who" smooth={true} duration={500} className="flex items-center cursor-pointer animate-bounce">
               <ArrowDown className="h-10 w-10 text-white" />
             </Link>
           </div>
