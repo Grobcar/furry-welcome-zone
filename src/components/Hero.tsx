@@ -14,7 +14,7 @@ const Hero = () => {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-10 flex items-center h-screen pt-16 sm:pt-20 lg:pt-24">
+      <div className="relative z-10 flex items-center h-screen">
         <div className="container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
             Cuidando de tus Mascotas como Familia
@@ -32,7 +32,7 @@ const Hero = () => {
           </div>
 
           {/* Animated arrow button */}
-          <div className="flex justify-center mt-12 md:mt-16">
+          <div className="flex justify-center mt-8 md:mt-12">
             <a href="#who" className="flex items-center cursor-pointer animate-bounce">
               <svg className="h-16 w-16 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 5v14M5 12l7 7 7-7"></path>
