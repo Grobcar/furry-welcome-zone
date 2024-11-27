@@ -1,4 +1,15 @@
 import { Phone } from "lucide-react";
+
+const scrollToSection = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    window.scrollTo({
+      top: element.offsetTop,
+      behavior: "smooth",
+    });
+  }
+};
+
 const Hero = () => {
   return (
     <div className="relative bg-gray-900">
@@ -33,17 +44,19 @@ const Hero = () => {
 
           {/* Animated arrow button */}
           <div className="flex justify-center mt-8 md:mt-12">
-            <a href="#Who" className="flex items-center cursor-pointer animate-bounce">
+            <button
+              onClick={() => scrollToSection("who")}
+              className="flex items-center cursor-pointer animate-bounce"
+            >
               <svg className="h-16 w-16 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 5v14M5 12l7 7 7-7"></path>
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 
 export default Hero;
