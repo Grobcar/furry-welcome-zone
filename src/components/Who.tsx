@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Who = () => {
   return (
-    <section section id="Who" className="py-20 bg-gray-50">
+    <section id="Who" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center">
           Quienes Somos
