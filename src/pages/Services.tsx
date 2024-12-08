@@ -1,51 +1,45 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Stethoscope, Syringe, Microscope, HeartPulse, ShoppingBag, Users, Dog, Rabbit } from "lucide-react";
+import React, { useState } from "react";
+import { Heart, Stethoscope, ShoppingBag, Dog, ChevronDown } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { useInView } from "react-intersection-observer";
-import { memo } from "react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const services = [
   {
     title: "Cuidado Preventivo",
-    description: "Chequeos regulares y vacunaciones",
-    icon: HeartPulse,
+    description: "Chequeos regulares y vacunaciones para mantener a tus mascotas saludables",
+    icon: Heart,
     image: "/images/vet.webp",
     details: [
       "Exámenes anuales de bienestar",
       "Vacunas y refuerzos",
       "Prevención y control de parásitos",
       "Evaluaciones de salud dental",
-      "Asesoramiento nutricional"
-    ]
+      "Asesoramiento nutricional",
+    ],
   },
   {
-    title: "Diagnósticos",
-    description: "Pruebas diagnósticas avanzadas",
-    icon: Microscope,
+    title: "Tratamiento Médico",
+    description: "Diagnóstico y tratamiento experto para diversas condiciones",
+    icon: Stethoscope,
     image: "/images/tratamiento.webp",
     details: [
-      "Rayos X digitales",
-      "Análisis de laboratorio",
-      "Exámenes de ultrasonido",
-      "Análisis de sangre",
-      "Análisis de orina y heces"
-    ]
-  },
-  {
-    title: "Cirugía",
-    description: "Procedimientos quirúrgicos",
-    icon: Syringe,
-    image: "/images/bienestar.webp",
-    details: [
-      "Esterilización y castración",
-      "Cirugía de tejidos blandos",
-      "Procedimientos dentales",
-      "Extirpación de masas",
-      "Cirugía de emergencia"
-    ]
+      "Diagnóstico y tratamiento de enfermedades",
+      "Cirugías y procedimientos",
+      "Cuidados postoperatorios",
+      "Tratamientos especializados",
+      "Monitoreo continuo",
+    ],
   },
   {
     title: "Tienda de Mascotas",
-    description: "Productos de calidad",
+    description: "Productos de calidad para el cuidado y diversión de tu mascota",
     icon: ShoppingBag,
     image: "/images/tienda.webp",
     details: [
@@ -53,79 +47,40 @@ const services = [
       "Suplementos y vitaminas",
       "Productos de higiene",
       "Juguetes y accesorios",
-      "Productos para el cuidado dental"
-    ]
-  },
-  {
-    title: "Medicina Interna",
-    description: "Tratamiento de condiciones",
-    icon: Stethoscope,
-    image: "/images/foto2.webp",
-    details: [
-      "Manejo de enfermedades crónicas",
-      "Trastornos endocrinos",
-      "Problemas gastrointestinales",
-      "Condiciones respiratorias",
-      "Cuidado cardiovascular"
-    ]
-  },
-  {
-    title: "Equipo Humano",
-    description: "Profesionales cualificados",
-    icon: Users,
-    image: "/images/mascota.webp",
-    details: [
-      "Veterinarios especializados",
-      "Auxiliares veterinarios",
-      "Personal de atención al cliente",
-      "Especialistas en comportamiento",
-      "Equipo de emergencias"
-    ]
+      "Productos para el cuidado dental",
+    ],
   },
   {
     title: "Animales Exóticos",
-    description: "Cuidado especializado",
-    icon: Rabbit,
+    description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
+    icon: Dog,
     image: "/images/exoticos.webp",
     details: [
-      "Atención para aves",
+      "Atención especializada para aves",
       "Cuidado de reptiles",
-      "Pequeños mamíferos",
+      "Tratamiento de pequeños mamíferos",
       "Nutrición específica",
-      "Ambiente y hábitat"
-    ]
+      "Ambiente y hábitat",
+    ],
   },
-  {
-    title: "Bienestar Animal",
-    description: "Cuidado integral",
-    icon: Dog,
-    image: "/images/bienestar.webp",
-    details: [
-      "Planes nutricionales",
-      "Consejos de ejercicio",
-      "Evaluación del comportamiento",
-      "Programas de bienestar",
-      "Seguimiento del desarrollo"
-    ]
-  }
 ];
 
-const ServiceCard = memo(({ service, index }: { service: typeof services[0], index: number }) => {
+const ServiceCard = React.memo(({ service, index }: { service: typeof services[0]; index: number }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
-    delay: 100
   });
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
       ref={ref}
-      className={`transform transition-all duration-500 ${
+      className={`transform transition-all duration-700 ${
         inView
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-20"
       }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
       <Card className="group h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/50 backdrop-blur-sm border-primary/10 overflow-hidden">
         <div className="relative h-48 overflow-hidden">
@@ -145,14 +100,26 @@ const ServiceCard = memo(({ service, index }: { service: typeof services[0], ind
         </div>
         <CardContent className="p-6">
           <p className="text-gray-600 mb-4">{service.description}</p>
-          <ul className="space-y-2">
-            {service.details.map((detail, idx) => (
-              <li key={idx} className="flex items-center text-sm text-gray-700 animate-fade-up" style={{ animationDelay: `${idx * 100}ms` }}>
-                <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2" />
-                {detail}
-              </li>
-            ))}
-          </ul>
+          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+            <CollapsibleTrigger className="flex items-center justify-between w-full text-left text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+              Ver detalles
+              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-4">
+              <ul className="space-y-2">
+                {service.details.map((detail, idx) => (
+                  <li 
+                    key={idx} 
+                    className="flex items-center text-sm text-gray-700 animate-fade-up" 
+                    style={{ animationDelay: `${idx * 100}ms` }}
+                  >
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </CollapsibleContent>
+          </Collapsible>
         </CardContent>
       </Card>
     </div>
@@ -168,25 +135,36 @@ const Services = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-transparent">
+    <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
       <div 
         ref={headerRef}
-        className={`relative h-[200px] bg-gradient-to-r from-primary/10 to-primary/5 transform transition-all duration-700 ${
+        className={`text-center mb-12 transform transition-all duration-700 ${
           headerInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
         }`}
       >
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl font-bold text-center animate-fade-down">Nuestros Servicios</h1>
-        </div>
+        <h2 className="text-4xl font-bold mb-4 animate-fade-down">Nuestros Servicios</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto px-4 animate-fade-up">
+          Ofrecemos una amplia gama de servicios veterinarios profesionales para el cuidado integral de tu mascota
+        </p>
       </div>
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
+        <div className="mt-12 text-center animate-fade-up">
+          <Link to="/services">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              Ver todos nuestros servicios
+            </Button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

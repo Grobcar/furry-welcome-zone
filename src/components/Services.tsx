@@ -1,9 +1,14 @@
-import React from "react";
-import { Heart, Stethoscope, ShoppingBag, Dog } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import React, { useState } from "react";
+import { Heart, Stethoscope, ShoppingBag, Dog, ChevronDown } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const services = [
   {
@@ -65,6 +70,7 @@ const ServiceCard = React.memo(({ service, index }: { service: typeof services[0
     triggerOnce: true,
     threshold: 0.1,
   });
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
@@ -94,14 +100,26 @@ const ServiceCard = React.memo(({ service, index }: { service: typeof services[0
         </div>
         <CardContent className="p-6">
           <p className="text-gray-600 mb-4">{service.description}</p>
-          <ul className="space-y-2">
-            {service.details.map((detail, idx) => (
-              <li key={idx} className="flex items-center text-sm text-gray-700 animate-fade-up" style={{ animationDelay: `${idx * 100}ms` }}>
-                <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2" />
-                {detail}
-              </li>
-            ))}
-          </ul>
+          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+            <CollapsibleTrigger className="flex items-center justify-between w-full text-left text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+              Ver detalles
+              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-4">
+              <ul className="space-y-2">
+                {service.details.map((detail, idx) => (
+                  <li 
+                    key={idx} 
+                    className="flex items-center text-sm text-gray-700 animate-fade-up" 
+                    style={{ animationDelay: `${idx * 100}ms` }}
+                  >
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </CollapsibleContent>
+          </Collapsible>
         </CardContent>
       </Card>
     </div>
