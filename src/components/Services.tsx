@@ -1,21 +1,18 @@
-import React, { useState } from "react";
-import { Heart, Stethoscope, ShoppingBag, Dog, ChevronDown } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { useInView } from "react-intersection-observer";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users, ChevronDown } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { useInView } from "react-intersection-observer";
 
 const services = [
   {
     title: "Cuidado Preventivo",
     description: "Chequeos regulares y vacunaciones para mantener a tus mascotas saludables",
     icon: Heart,
-    image: "/images/vet.webp",
     details: [
       "Exámenes anuales de bienestar",
       "Vacunas y refuerzos",
@@ -28,7 +25,6 @@ const services = [
     title: "Tratamiento Médico",
     description: "Diagnóstico y tratamiento experto para diversas condiciones",
     icon: Stethoscope,
-    image: "/images/tratamiento.webp",
     details: [
       "Diagnóstico y tratamiento de enfermedades",
       "Cirugías y procedimientos",
@@ -41,7 +37,6 @@ const services = [
     title: "Tienda de Mascotas",
     description: "Productos de calidad para el cuidado y diversión de tu mascota",
     icon: ShoppingBag,
-    image: "/images/tienda.webp",
     details: [
       "Alimentos premium",
       "Suplementos y vitaminas",
@@ -51,10 +46,21 @@ const services = [
     ],
   },
   {
+    title: "Bienestar Animal",
+    description: "Asesoramiento nutricional y consejos de estilo de vida para tu mascota",
+    icon: Dog,
+    details: [
+      "Planes nutricionales personalizados",
+      "Consejos de ejercicio",
+      "Evaluación del comportamiento",
+      "Programas de bienestar",
+      "Seguimiento del desarrollo",
+    ],
+  },
+  {
     title: "Animales Exóticos",
     description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
-    icon: Dog,
-    image: "/images/exoticos.webp",
+    icon: Rabbit,
     details: [
       "Atención especializada para aves",
       "Cuidado de reptiles",
@@ -63,14 +69,25 @@ const services = [
       "Ambiente y hábitat",
     ],
   },
+  {
+    title: "Equipo Humano",
+    description: "Nuestro equipo de profesionales altamente cualificados",
+    icon: Users,
+    details: [
+      "Veterinarios especializados",
+      "Auxiliares veterinarios",
+      "La mejor atención al cliente",
+      "El mejor trato para tu mascota",
+      "Equipo de emergencias",
+    ],
+  },
 ];
 
-const ServiceCard = React.memo(({ service, index }: { service: typeof services[0]; index: number }) => {
+const ServiceCard = React.memo(({ service, index }: { service: typeof services[number]; index: number }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
@@ -82,86 +99,54 @@ const ServiceCard = React.memo(({ service, index }: { service: typeof services[0
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <Card className="group h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/50 backdrop-blur-sm border-primary/10 overflow-hidden">
-        <div className="relative h-48 overflow-hidden">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-            loading="lazy"
-            width="400"
-            height="300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute bottom-4 left-4 text-white">
-            <service.icon className="h-8 w-8 mb-2" />
-            <h3 className="text-xl font-bold">{service.title}</h3>
-          </div>
-        </div>
-        <CardContent className="p-6">
-          <p className="text-gray-600 mb-4">{service.description}</p>
-          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-            <CollapsibleTrigger className="flex items-center justify-between w-full text-left text-sm font-medium text-primary hover:text-primary/80 transition-colors">
-              Ver detalles
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-            </CollapsibleTrigger>
-            <CollapsibleContent className="mt-4">
-              <ul className="space-y-2">
+      <Collapsible className="group">
+        <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white/50 backdrop-blur-sm border-primary/10">
+          <CollapsibleTrigger className="w-full">
+            <CardHeader className="flex items-center justify-between p-6">
+              <div className="flex items-center space-x-4 w-full">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <service.icon className="h-8 w-8 text-primary" />
+                </div>
+                <div className="flex flex-col flex-1">
+                  <CardTitle className="text-xl font-bold text-gray-800">{service.title}</CardTitle>
+                  <p className="text-gray-600 text-sm mt-1">{service.description}</p>
+                </div>
+                <ChevronDown className="h-6 w-6 text-gray-500 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+              </div>
+            </CardHeader>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+            <CardContent className="border-t p-6 bg-gray-50">
+              <ul className="space-y-3">
                 {service.details.map((detail, idx) => (
-                  <li 
-                    key={idx} 
-                    className="flex items-center text-sm text-gray-700 animate-fade-up" 
-                    style={{ animationDelay: `${idx * 100}ms` }}
-                  >
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2" />
-                    {detail}
+                  <li key={idx} className="flex items-center text-gray-700">
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary mr-3" />
+                    <span className="text-sm">{detail}</span>
                   </li>
                 ))}
               </ul>
-            </CollapsibleContent>
-          </Collapsible>
-        </CardContent>
-      </Card>
+            </CardContent>
+          </CollapsibleContent>
+        </Card>
+      </Collapsible>
     </div>
   );
 });
 
-ServiceCard.displayName = 'ServiceCard';
-
 const Services = () => {
-  const { ref: headerRef, inView: headerInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
-
   return (
-    <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
-      <div 
-        ref={headerRef}
-        className={`text-center mb-12 transform transition-all duration-700 ${
-          headerInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
-        }`}
-      >
-        <h2 className="text-4xl font-bold mb-4 animate-fade-down">Nuestros Servicios</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto px-4 animate-fade-up">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-4 animate-fade-down">
+          Nuestros Servicios
+        </h2>
+        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto animate-fade-up">
           Ofrecemos una amplia gama de servicios veterinarios profesionales para el cuidado integral de tu mascota
         </p>
-      </div>
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
-        </div>
-        <div className="mt-12 text-center animate-fade-up">
-          <Link to="/services">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-            >
-              Ver todos nuestros servicios
-            </Button>
-          </Link>
         </div>
       </div>
     </section>
