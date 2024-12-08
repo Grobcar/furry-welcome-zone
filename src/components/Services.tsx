@@ -1,14 +1,16 @@
 import React from "react";
-import { Heart, Stethoscope, ShoppingBag, Dog, Rabbit, Users } from "lucide-react";
+import { Heart, Stethoscope, ShoppingBag, Dog } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useInView } from "react-intersection-observer";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     title: "Cuidado Preventivo",
     description: "Chequeos regulares y vacunaciones para mantener a tus mascotas saludables",
     icon: Heart,
-    image: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def",
+    image: "/images/vet.webp",
     details: [
       "Exámenes anuales de bienestar",
       "Vacunas y refuerzos",
@@ -21,7 +23,7 @@ const services = [
     title: "Tratamiento Médico",
     description: "Diagnóstico y tratamiento experto para diversas condiciones",
     icon: Stethoscope,
-    image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
+    image: "/images/tratamiento.webp",
     details: [
       "Diagnóstico y tratamiento de enfermedades",
       "Cirugías y procedimientos",
@@ -34,7 +36,7 @@ const services = [
     title: "Tienda de Mascotas",
     description: "Productos de calidad para el cuidado y diversión de tu mascota",
     icon: ShoppingBag,
-    image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1",
+    image: "/images/tienda.webp",
     details: [
       "Alimentos premium",
       "Suplementos y vitaminas",
@@ -44,42 +46,16 @@ const services = [
     ],
   },
   {
-    title: "Bienestar Animal",
-    description: "Asesoramiento nutricional y consejos de estilo de vida para tu mascota",
-    icon: Dog,
-    image: "https://images.unsplash.com/photo-1548767797-d8c844163c4c",
-    details: [
-      "Planes nutricionales personalizados",
-      "Consejos de ejercicio",
-      "Evaluación del comportamiento",
-      "Programas de bienestar",
-      "Seguimiento del desarrollo",
-    ],
-  },
-  {
     title: "Animales Exóticos",
     description: "Cuidado especializado para reptiles, aves y otras mascotas exóticas",
-    icon: Rabbit,
-    image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308",
+    icon: Dog,
+    image: "/images/exoticos.webp",
     details: [
       "Atención especializada para aves",
       "Cuidado de reptiles",
       "Tratamiento de pequeños mamíferos",
       "Nutrición específica",
       "Ambiente y hábitat",
-    ],
-  },
-  {
-    title: "Equipo Humano",
-    description: "Nuestro equipo de profesionales altamente cualificados",
-    icon: Users,
-    image: "https://images.unsplash.com/photo-1587764379873-97837921fd44",
-    details: [
-      "Veterinarios especializados",
-      "Auxiliares veterinarios",
-      "La mejor atención al cliente",
-      "El mejor trato para tu mascota",
-      "Equipo de emergencias",
     ],
   },
 ];
@@ -107,6 +83,8 @@ const ServiceCard = React.memo(({ service, index }: { service: typeof services[0
             alt={service.title}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             loading="lazy"
+            width="400"
+            height="300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-4 left-4 text-white">
@@ -152,10 +130,20 @@ const Services = () => {
         </p>
       </div>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
+        </div>
+        <div className="mt-12 text-center animate-fade-up">
+          <Link to="/services">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              Ver todos nuestros servicios
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
