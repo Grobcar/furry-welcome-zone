@@ -58,21 +58,51 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-     keyframes: {
-        // Animación de despliegue y replegado del acordeón
+      keyframes: {
         "accordion-down": {
-          from: { maxHeight: "0" },
-          to: { maxHeight: "500px" }, // Ajusta según el tamaño máximo que necesites
+          from: { height: "0", opacity: "0" },
+          to: { height: "var(--radix-accordion-content-height)", opacity: "1" },
         },
         "accordion-up": {
-          from: { maxHeight: "500px" }, // Ajusta según el tamaño máximo que necesites
-          to: { maxHeight: "0" },
+          from: { height: "var(--radix-accordion-content-height)", opacity: "1" },
+          to: { height: "0", opacity: "0" },
+        },
+        "fade-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-down": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "rotate-180": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(180deg)" },
         },
       },
       animation: {
-        // Animación de apertura y cierre del acordeón
         "accordion-down": "accordion-down 0.3s ease-out",
         "accordion-up": "accordion-up 0.3s ease-out",
+        "fade-up": "fade-up 0.5s ease-out",
+        "fade-down": "fade-down 0.5s ease-out",
+        "fade-in": "fade-in 0.3s ease-out",
+        "rotate-180": "rotate-180 0.3s ease-out",
       },
     },
   },

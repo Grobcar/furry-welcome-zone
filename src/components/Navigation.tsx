@@ -7,18 +7,18 @@ const Navigation = () => {
   const MenuItems = () => (
     <div className="flex items-center justify-between w-full">
       <NavigationMenuItem className="flex items-center">
-        <img src="/logo.svg" alt="Veterinaria Gaiteira Logo" className="h-10 mr-2" />
-        <Link to="/" className="font-semibold text-lg text-primary hover:text-primary/80">
+        <img src="/logo.svg" alt="Veterinaria Gaiteira Logo" className="h-10 mr-2 transition-transform duration-300 hover:scale-105" />
+        <Link to="/" className="font-semibold text-lg text-primary hover:text-primary/80 transition-colors duration-300">
           Veterinaria Gaiteira
         </Link>
       </NavigationMenuItem>
       <div className="flex items-center space-x-8">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="h-10">Servicios</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="h-10 transition-colors duration-300">Servicios</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4">
+            <ul className="grid w-[400px] gap-3 p-4 animate-fade-in">
               <li className="row-span-3">
-                <Link to="/services" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/50 to-primary p-6 no-underline outline-none focus:shadow-md">
+                <Link to="/services" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/50 to-primary p-6 no-underline outline-none focus:shadow-md transition-transform duration-300 hover:scale-105">
                   <div className="mb-2 mt-4 text-lg font-medium text-white">
                     Servicios Veterinarios
                   </div>
@@ -28,7 +28,7 @@ const Navigation = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/grooming" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                <Link to="/grooming" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105">
                   <div className="text-sm font-medium leading-none">Peluquería</div>
                   <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                     Servicios profesionales de peluquería
@@ -39,12 +39,12 @@ const Navigation = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link to="/blog" className="text-base hover:text-primary h-10 flex items-center">
+          <Link to="/blog" className="text-base hover:text-primary h-10 flex items-center transition-colors duration-300">
             Blog
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link to="/contact" className="text-base hover:text-primary h-10 flex items-center">
+          <Link to="/contact" className="text-base hover:text-primary h-10 flex items-center transition-colors duration-300">
             Contacto
           </Link>
         </NavigationMenuItem>
@@ -53,8 +53,7 @@ const Navigation = () => {
   );
 
   return (
-    <div className="max-w-full w-full bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b">
-      {/* Mobile Navigation */}
+    <div className="max-w-full w-full bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b transition-all duration-300">
       <div className="md:hidden flex items-center justify-between px-4 py-2">
         <Link to="/" className="font-semibold text-lg text-primary">
           Veterinaria Gaiteira
