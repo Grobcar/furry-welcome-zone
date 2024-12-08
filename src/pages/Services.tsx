@@ -1,12 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Stethoscope, Syringe, Microscope, HeartPulse, ShoppingBag, Users } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import { memo } from "react";
 
 const services = [
   {
     title: "Cuidado Preventivo",
     description: "Chequeos regulares y vacunaciones",
     icon: HeartPulse,
-    image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97",
     details: [
       "Exámenes anuales de bienestar",
       "Vacunas y refuerzos",
@@ -82,40 +83,72 @@ const services = [
   }
 ];
 
+const ServiceCard = memo(({ service, index }: { service: typeof services[0], index: number }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+    delay: 100
+  });
+
+  return (
+    <div
+      ref={ref}
+      className={`transform transition-all duration-500 ${
+        inView
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-20"
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white/50 backdrop-blur-sm border-primary/10">
+        <CardHeader className="flex flex-row items-center gap-4">
+          <div className="p-2 rounded-lg bg-primary/10">
+            <service.icon className="h-6 w-6 text-primary" />
+          </div>
+          <div>
+            <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
+            <CardDescription>{service.description}</CardDescription>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <ul className="space-y-2">
+            {service.details.map((detail, idx) => (
+              <li key={idx} className="flex items-center text-sm">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2" />
+                {detail}
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
+});
+
+ServiceCard.displayName = 'ServiceCard';
+
 const Services = () => {
+  const { ref: headerRef, inView: headerInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-transparent">
-      <div className="relative h-[300px] bg-gradient-to-r from-primary/10 to-primary/5">
+      <div 
+        ref={headerRef}
+        className={`relative h-[200px] bg-gradient-to-r from-primary/10 to-primary/5 transform transition-all duration-700 ${
+          headerInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        }`}
+      >
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl font-bold text-center mb-12">Nuestros Servicios</h1>
+          <h1 className="text-4xl font-bold text-center">Nuestros Servicios</h1>
         </div>
       </div>
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow bg-white/50 backdrop-blur-sm border-primary/10">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-4">
-                  <service.icon className="h-12 w-12 text-primary" />
-                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-primary/20">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <CardTitle className="text-2xl font-bold text-gray-800">{service.title}</CardTitle>
-                <CardDescription className="text-gray-600">{service.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  {service.details.map((detail, idx) => (
-                    <li key={idx} className="text-sm">{detail}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
       </div>
