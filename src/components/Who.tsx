@@ -14,7 +14,7 @@ const Who = () => {
   });
 
   return (
-    <section id="Who" className="py-20 bg-gray-50">
+    <section id="Who" className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
       <div className="container mx-auto px-4">
         <div
           ref={sectionRef}
@@ -22,12 +22,12 @@ const Who = () => {
             sectionInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-3xl font-bold text-center mb-8">
+          <h2 className="text-3xl font-bold text-center mb-8 animate-fade-down">
             Quienes Somos
           </h2>
-          <Card className="max-w-4xl mx-auto bg-white/50 backdrop-blur-sm">
+          <Card className="max-w-4xl mx-auto bg-white/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
             <CardContent className="p-6">
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              <p className="text-lg text-gray-700 leading-relaxed mb-8 animate-fade-up">
                 En Veterinaria Gaiteira, nos enorgullece ofrecer un servicio veterinario excepcional 
                 respaldado por años de experiencia y dedicación. Nuestro equipo de profesionales 
                 altamente cualificados combina la última tecnología con un cuidado compasivo para 
@@ -44,7 +44,7 @@ const Who = () => {
                 <img
                   src="/images/mascota.webp"
                   alt="Equipo veterinario en acción"
-                  className="w-full h-64 object-cover sm:h-auto sm:max-h-[300px]"
+                  className="w-full h-64 object-cover sm:h-auto sm:max-h-[300px] hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
